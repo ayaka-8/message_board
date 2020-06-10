@@ -5,8 +5,6 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -14,7 +12,21 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    ログインしました
+                </div>
+            </div><!-- ./card -->
+            <!-- プロフィール情報がないユーザーに表示　-->
+            <div class="card text-center">
+                <div class="card-body">
+                    <p class="card-text">引き続きプロフィール情報の登録をお願いします。</p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">製品をソリューションとして発信したい日本企業のみなさま</p>
+                    <a href="{{ url('/admin/profile/solution/create') }}" class="btn btn-primary">こちらから</a>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">お悩みを解決したい海外企業のみなさま</p>
+                    <a href="{{ url('/admin/profile/challenge/create') }}" class="btn btn-primary">こちらから</a>
                 </div>
             </div>
         </div>

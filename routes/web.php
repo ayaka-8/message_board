@@ -11,8 +11,16 @@
 |
 */
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('profile/create', 'Admin\ProfileController@add');
-    Route::get('profile/edit', 'Admin\ProfileController@update');
+    //お悩み企業向けプロフィール登録、編集
+    Route::get('profile/challenge/create', 'Admin\ProfileController@addChallenge');
+    Route::post('profile/challenge/create', 'Admin\ProfileController@createChallenge');
+    Route::get('profile/challenge/edit', 'Admin\ProfileController@editChallenge');
+    Route::post('profile/challenge/edit', 'Admin\ProfileController@updateChallenge');
+    //ソリューション企業向けプロフィール登録、編集
+    Route::get('profile/solution/create', 'Admin\ProfileController@addSolution');
+    Route::post('profile/solution/create', 'Admin\ProfileController@createSolution');
+    Route::get('profile/solution/edit', 'Admin\ProfileController@editSolution');
+    Route::post('profile/solution/edit', 'Admin\ProfileController@updateSolution');
 });
 
 Route::get('/', function () {
