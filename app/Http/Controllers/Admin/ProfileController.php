@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\SolutionProfile;
 
 class ProfileController extends Controller
 {
@@ -36,6 +37,24 @@ class ProfileController extends Controller
 
     public function createSolution(Request $request)
     {
+        //Validation
+        $this->validate($request, SolutionProfile::$rules);
+        $solution_profile = new SolutionProfile;
+        $form = $request->all();
+        //画像を保存
+        if (isset($form['image'])) {
+            $path = $request->file('image')->store('public/image');
+        } else {
+            $solution_profile->solution_image = null;
+        }
+        // _tokenを削除
+        unset($form['_token']);
+        // imageを削除
+        unset($form['image']);
+        
+        //データベースに保存
+        $solution_profile->fill($form);
+        $solution_profile->save();
         return redirect('admin/profile/solution/create');
     }
 

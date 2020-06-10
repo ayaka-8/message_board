@@ -11,8 +11,8 @@
 
                     @if (count($errors) > 0)
                         <ul>
-                            @foreach($errors->all() as $e)
-                            <li>{{ $e }}</li>
+                            @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     @endif
@@ -23,9 +23,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">ロゴ画像</label>
+                        <label class="col-md-3">会社ロゴ</label>
                         <div class="col-md-9">
-                            <input type="file" class="form-control-file" name="logo">
+                            <input type="file" class="form-control-file" name="logo_image">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -43,13 +43,13 @@
                     <div class="form-group row">
                         <label class="col-md-3">電話番号</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="phone_number">{{ old('phone_number') }}
+                            <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3">公式サイト</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="url">{{ old('url') }}
+                            <input type="text" class="form-control" name="url" value="{{ old('url') }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -97,7 +97,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">担当者メールアドレス</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="contact_email">{{ old('contact_email') }}
+                            <input type="text" class="form-control" name="contact_email" value="{{ old('contact_email') }}">
                         </div>
                     </div>
                     {{ csrf_field() }}
