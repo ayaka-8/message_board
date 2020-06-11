@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\ChallengeProfile;
 
 class ChallengeProfileController extends Controller
 {
@@ -15,6 +16,25 @@ class ChallengeProfileController extends Controller
 
     public function create(Request $request)
     {
+        //validation
+        $this->validate($request, ChallengeProfile::$rules);
+        $challenge_profile = new ChallengeProfile;
+        $form = $request->all();
+        //画像を保存
+        if (isset($form['image'])) {
+            $path = $request->file('image')->store('public/challenge/image');
+        } else {
+            $challenge_profile->challenge_image = null;
+        }
+        // _tokenを削除
+        unset($form['_token']);
+        // imageを削除
+        unset($form['image']);
+        
+        //データベース に保存
+        $challenge_profile->fill($form);
+        $challenge_profile->save();
+        
         return redirect('admin/profile/challenge/create');
     }
 
