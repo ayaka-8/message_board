@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-9 mx-auto">
                 <h2>プロフィール登録（海外企業向け）</h2>
-                <form action="{{ action('Admin\ProfileController@createChallenge') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Admin\ChallengeProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>

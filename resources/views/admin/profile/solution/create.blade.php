@@ -1,4 +1,6 @@
 <!-- ソリューション企業向けプロフィール登録画面 -->
+{{! エラーメッセージ の表示 !}}
+
 @extends('layouts.admin')
 @section('title', 'プロフィール登録')
 @section('content')
@@ -7,7 +9,7 @@
         <div class="row">
             <div class="col-md-9 mx-auto">
                 <h2>プロフィール登録（日本企業向け）</h2>
-                <form action="{{ action('Admin\ProfileController@createSolution') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Admin\SolutionProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>
@@ -19,7 +21,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">会社名 (公開名)</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="public_name" value="{{ old('public_name') }}">
+                            <input type="text" class="form-control"  name="public_name" value="{{ old('public_name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
