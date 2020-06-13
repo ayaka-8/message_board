@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     //ソリューション企業向けプロフィール登録、編集
     Route::get('profile/solution/create', 'Admin\SolutionProfileController@add');
     Route::post('profile/solution/create', 'Admin\SolutionProfileController@create');
+    Route::get('profile/solution/mypage/{id}', 'Admin\SolutionProfileController@show')->name('mypage.show');
     Route::get('profile/solution/edit', 'Admin\SolutionProfileController@edit');
     Route::post('profile/solution/edit', 'Admin\SolutionProfileController@update');
 });

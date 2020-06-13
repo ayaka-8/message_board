@@ -21,4 +21,9 @@ class SolutionProfile extends Model
         'contact_message' => 'required',
         'contact_email' => 'required',
         );
+        
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
