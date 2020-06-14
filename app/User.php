@@ -41,4 +41,6 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\SolutionProfile');
     }
+    
+    protected $guarded = array('id');
 }

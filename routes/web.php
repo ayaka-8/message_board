@@ -20,8 +20,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('profile/solution/create', 'Admin\SolutionProfileController@add');
     Route::post('profile/solution/create', 'Admin\SolutionProfileController@create');
     Route::get('profile/solution/mypage/{id}', 'Admin\SolutionProfileController@show')->name('mypage.show');
-    Route::get('profile/solution/edit', 'Admin\SolutionProfileController@edit');
-    Route::post('profile/solution/edit', 'Admin\SolutionProfileController@update');
+    Route::get('profile/solution/mypage/{id}/edit', 'Admin\SolutionProfileController@edit');
+    Route::post('profile/solution/mypage/{id}/edit', 'Admin\SolutionProfileController@update');
+    //ユーザー情報の編集、更新
+    Route::get('profile/solution/mypage/{id}/user/edit', 'Admin\UserController@edit');
+    Route::post('profile/solution/mypage/{id}/user/edit', 'Admin\UserController@update');
 });
 
 Route::get('/', function () {

@@ -3,6 +3,10 @@
 @extends('layouts.admin')
 @section('title', 'マイページ')
 @section('content')
+    <!-- Flashメッセージを表示 -->
+    @if (session('status'))
+    <div class="alert alert-success text-center" role="alert"  onclick="this.classList.add('hidden')">{{ session('status') }}</div>
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-md-10 mx-auto">
@@ -16,7 +20,7 @@
                                 <tr><td>メールアドレス</td><td>{{ $user->email }}</td></tr>
                             </table>
                         </div>
-                        <button href="{{ action('Admin\SolutionProfileController@edit', ['id' => $user->id]) }}" class="btn btn-primary">編集</button>
+                        <a href="{{ action('Admin\UserController@edit', ['id' => $user->id]) }}" class="btn btn-primary">編集</a>
                     </div>
                 </div>
                 <div class="card">
@@ -60,7 +64,7 @@
                                 <tr><td>担当者のメールアドレス</td><td>{{ $my_profile->contact_email }}</td></tr>
                             </table>
                          </div>
-                         <a href="{{ action('Admin\SolutionProfileController@edit', ['id' => $my_profile->id]) }}" class="btn btn-primary">編集</a>
+                         <a href="{{ action('Admin\SolutionProfileController@edit', ['id' => $my_profile->user_id]) }}" class="btn btn-primary">編集</a>
                          @else <!--プロフィール情報がなかった場合 -->
                             <p>プロフィールは登録されていません</p>
                             <a href="{{ action('Admin\SolutionProfileController@add') }}" class="btn btn-primary">登録</a>

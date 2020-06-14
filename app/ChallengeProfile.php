@@ -12,13 +12,13 @@ class ChallengeProfile extends Model
         'public_name' => 'required',
         'area' => 'required',
         'address' => 'required',
-        'phone_number' => 'required',
-        'url' => 'required',
+        'phone_number' => 'required|integer',
+        'url' => 'required|url',
         'challenge_keyword' => 'required',
         'challenge_detail' => 'required',
         'challenge_method' => 'required',
         'message' => 'required',
         'contact_message' => 'required',
-        'contact_email' => 'required',
+        'contact_email' => 'required|email',
         );
 }

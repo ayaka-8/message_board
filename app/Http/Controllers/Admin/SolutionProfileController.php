@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\SolutionProfile;
 use App\User;
+//use App\Http\Request\MypageRequest;
 
 class SolutionProfileController extends Controller
 {
@@ -23,7 +24,7 @@ class SolutionProfileController extends Controller
         $this->validate($request, SolutionProfile::$rules);
         $solution_profile = new SolutionProfile;
         $form = $request->all();
-        //画像を保存
+        //画像を保存（複数保存設定まだ!!!)
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/solution/image');
         } else {
@@ -40,7 +41,7 @@ class SolutionProfileController extends Controller
         //データベースに保存
         $solution_profile->fill($form);
         $solution_profile->save();
-        return redirect()->route('mypage.show', ['id' => $solution_profile->user_id]);
+        return redirect()->route('mypage.show', ['id' => $solution_profile->user_id])->with('status', 'プロフィールを登録しました');
     }
     
     //マイページ
@@ -58,15 +59,27 @@ class SolutionProfileController extends Controller
             'user' => $user
             ]);
     }
-    
-    public function edit()
+    //プロフィール編集
+    public function edit(Request $request)
     {
-        return view('admin.profile.solution.edit');
+        $my_profile = SolutionProfile::where('user_id', $request->id)->first();
+        return view('admin.profile.solution.edit', ['my_profile' => $my_profile]);
     }
-
-    public function update()
+    //プロフィール更新->マイページ
+    public function update(Request $request, $id)
     {
-        return redirect('admin/profile/solution/edit');
-    }
+        //validation
+        $this->validate($request, SolutionProfile::$rules);
+        //プロフィールの取得
+        $my_profile = SolutionProfile::where('user_id', $id)->first();
+        $form = $request->all();
+        //画像の保存
+        //まだ!!
+        unset($form['_token']);
+        // 該当するデータを上書きして保存する
+        $my_profile->fill($form)->save();
+        
+        return redirect()->route('mypage.show', ['id' =>$my_profile->user_id ])->with('status', 'プロフィール情報を更新しました');
+    } 
 
 }
