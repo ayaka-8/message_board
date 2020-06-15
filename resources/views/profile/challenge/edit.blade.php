@@ -1,4 +1,4 @@
-<!-- ソリューション企業向けプロフィール編集画面　-->
+<!-- お悩み企業向けプロフィール編集画面　-->
 @extends('layouts.common')
 @section('title', 'プロフィール編集')
 @section('content')
@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-9 mx-auto">
                 <h2>プロフィール編集</h2>
-                <form action="{{ action('SolutionProfileController@update') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('ChallengeProfileController@update') }}" method="post" enctype="multipart/form-data">
                     <!-- エラーメッセージ の表示 -->
                     @if (count($errors) > 0)
                         <div class="alert alert-danger" role="alert">
@@ -84,50 +84,50 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">ソリューションキーワード<br>（主な事業分野）</label>
+                        <label class="col-md-3">お悩みに関するキーワード</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" name="solution_keyword" row="3">{{ old('solution_keyword', $my_profile->solution_keyword) }}</textarea>
-                            @if ($errors->has('solution_keyword'))
+                            <textarea class="form-control" name="challenge_keyword" row="3">{{ old('challenge_keyword', $my_profile->challenge_keyword) }}</textarea>
+                            @if ($errors->has('challenge_keyword'))
                             <div class="text-danger">
-                                {{$errors->first('solution_keyword')}}
+                                {{$errors->first('challenge_keyword')}}
                             </div>
                             @endif
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">ソリューション内容<br>（事業詳細）</label>
+                        <label class="col-md-3">現在の状況や課題</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" name="solution_detail" row="10">{{ old('solution_detail', $my_profile->solution_detail) }}</textarea>
-                            @if ($errors->has('solution_detail'))
+                            <textarea class="form-control" name="challenge_detail" row="10">{{ old('challenge_detail', $my_profile->challenge_detail) }}</textarea>
+                            @if ($errors->has('challenge_detail'))
                             <div class="text-danger">
-                                {{$errors->first('solution_detail')}}
+                                {{$errors->first('challenge_detail')}}
                             </div>
                             @endif
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">ソリューション実績<br>（事業実績）</label>
+                        <label class="col-md-3">お悩みに関する画像</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" name="solution_performance" row="10">{{ old('solution_performance', $my_profile->solution_performance) }}</textarea>
-                            @if ($errors->has('solution_performance'))
-                            <div class="text-danger">
-                                {{$errors->first('solution_performance')}}
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-3">ソリューションに関する画像</label>
-                        <div class="col-md-9">
-                            <input type="file" class="form-control-file" name="solution_image">
+                            <input type="file" class="form-control-file" name="challenge_image">
                             <div class="form-text text-info">
-                                設定中: {{ old('solution_image', $my_profile->solution_image) }}
+                                設定中: {{ old('challenge_image', $my_profile->challenge_image) }}
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
                                 </label>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3">相談者が考える解決策</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" name="challenge_method" row="10">{{ old('challenge_method', $my_profile->challenge_method) }}</textarea>
+                            @if ($errors->has('challenge_method'))
+                            <div class="text-danger">
+                                {{$errors->first('challenge_method')}}
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group row">

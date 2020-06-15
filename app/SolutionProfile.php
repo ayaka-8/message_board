@@ -22,6 +22,9 @@ class SolutionProfile extends Model
         'contact_email' => 'required|email',
         );
         
+    /**
+     * usrsテーブルとリレーション
+     */ 
     public function user()
     {
         return $this->belongsTo('App\User');

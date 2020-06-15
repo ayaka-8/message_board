@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>ユーザー登録内容の編集</h2>
-                <form action="{{ action('UserController@update', ['id' => $user->id]) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('SolutionUserController@update') }}" method="post" enctype="multipart/form-data">
                     <!-- エラーメッセージ の表示 -->
                     @if (count($errors) > 0)
                         <div class="alert alert-danger" role="alert">

@@ -21,4 +21,12 @@ class ChallengeProfile extends Model
         'contact_message' => 'required',
         'contact_email' => 'required|email',
         );
+        
+    /**
+     * usersテーブルとリレーション
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

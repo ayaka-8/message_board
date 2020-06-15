@@ -37,10 +37,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    /**
+     *solution_profilesテーブルとリレーション
+     */
     public function solutionProfile()
     {
         return $this->hasOne('App\SolutionProfile');
     }
     
     protected $guarded = array('id');
+    
+    /**
+     *challenge_profilesテーブルとリレーション
+     */
+    public function challengeProfile()
+    {
+        return $this->hasOne('App\ChallengeProfile');
+    }
+    
 }
