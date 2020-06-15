@@ -1,12 +1,12 @@
 <!-- マイページ内ユーザー情報編集画面　-->
-@extends('layouts.admin')
+@extends('layouts.common')
 @section('title', 'ユーザー情報編集')
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>ユーザー登録内容の編集</h2>
-                <form action="{{ action('Admin\UserController@update', ['id' => $user->id]) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('UserController@update', ['id' => $user->id]) }}" method="post" enctype="multipart/form-data">
                     <!-- エラーメッセージ の表示 -->
                     @if (count($errors) > 0)
                         <div class="alert alert-danger" role="alert">
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">地域名</label></label>
+                        <label class="col-md-2">メールアドレス</label></label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="email" value="{{ $user->email }}">
                             @if ($errors->has('email'))

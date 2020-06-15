@@ -1,5 +1,5 @@
 <!-- お悩み企業向けプロフィール新規登録画面 -->
-@extends('layouts.admin')
+@extends('layouts.common')
 @section('title', 'プロフィール登録')
 @section('content')
     @section('content')
@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-9 mx-auto">
                 <h2>プロフィール登録（海外企業向け）</h2>
-                <form action="{{ action('Admin\ChallengeProfileController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('ChallengeProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <div class="alert alert-danger" role="alert">

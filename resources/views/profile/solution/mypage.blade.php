@@ -1,6 +1,6 @@
 <!-- マイページトップ　-->
 <!-- ソリューション向け -->
-@extends('layouts.admin')
+@extends('layouts.common')
 @section('title', 'マイページ')
 @section('content')
     <!-- Flashメッセージを表示 -->
@@ -20,7 +20,7 @@
                                 <tr><td>メールアドレス</td><td>{{ $user->email }}</td></tr>
                             </table>
                         </div>
-                        <a href="{{ action('Admin\UserController@edit', ['id' => $user->id]) }}" class="btn btn-primary">編集</a>
+                        <a href="{{ action('UserController@edit', ['id' => $user->id]) }}" class="btn btn-primary">編集</a>
                     </div>
                 </div>
                 <div class="card">
@@ -64,10 +64,10 @@
                                 <tr><td>担当者のメールアドレス</td><td>{{ $my_profile->contact_email }}</td></tr>
                             </table>
                          </div>
-                         <a href="{{ action('Admin\SolutionProfileController@edit', ['id' => $my_profile->user_id]) }}" class="btn btn-primary">編集</a>
+                         <a href="{{ action('SolutionProfileController@edit', ['id' => $my_profile->user_id]) }}" class="btn btn-primary">編集</a>
                          @else <!--プロフィール情報がなかった場合 -->
                             <p>プロフィールは登録されていません</p>
-                            <a href="{{ action('Admin\SolutionProfileController@add') }}" class="btn btn-primary">登録</a>
+                            <a href="{{ action('SolutionProfileController@add') }}" class="btn btn-primary">登録</a>
                         @endif
                     </div>
                 </div>

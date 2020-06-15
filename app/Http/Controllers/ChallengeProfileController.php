@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,7 +11,7 @@ class ChallengeProfileController extends Controller
     //お悩み企業向けプロフィール登録、編集機能
     public function add()
     {
-        return view('admin.profile.challenge.create');
+        return view('profile.challenge.create');
     }
 
     public function create(Request $request)
@@ -35,16 +35,16 @@ class ChallengeProfileController extends Controller
         $challenge_profile->fill($form);
         $challenge_profile->save();
         
-        return redirect('admin/profile/challenge/create');
+        return redirect('profile/challenge/create');
     }
 
     public function edit()
     {
-        return view('admin.profile.challenge.edit');
+        return view('profile.challenge.edit');
     }
 
     public function update()
     {
-        return redirect('admin/profile/challenge/edit');
+        return redirect('profile/challenge/edit');
     }
 }

@@ -12,7 +12,7 @@ class ChallengeProfile extends Model
         'public_name' => 'required',
         'area' => 'required',
         'address' => 'required',
-        'phone_number' => 'required|integer',
+        'phone_number' => 'required|numeric|digits_between:8,11',
         'url' => 'required|url',
         'challenge_keyword' => 'required',
         'challenge_detail' => 'required',

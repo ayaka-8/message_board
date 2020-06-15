@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.common')
 
 @section('content')
 <div class="container">
@@ -22,11 +22,11 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text">製品をソリューションとして発信したい日本企業のみなさま</p>
-                    <a href="{{ url('/admin/profile/solution/create') }}" class="btn btn-primary">こちらから</a>
+                    <a href="{{ url('/profile/solution/create') }}" class="btn btn-primary">こちらから</a>
                 </div>
                 <div class="card-body">
                     <p class="card-text">お悩みを解決したい海外企業のみなさま</p>
-                    <a href="{{ url('/admin/profile/challenge/create') }}" class="btn btn-primary">こちらから</a>
+                    <a href="{{ url('/profile/challenge/create') }}" class="btn btn-primary">こちらから</a>
                 </div>
             </div>
         </div>

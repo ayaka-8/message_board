@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,13 +13,12 @@ class UserController extends Controller
     public function edit(Request $request)
     {
         $user = User::find($request->id);
-        return view('admin.profile.user.edit', ['user' => $user]);
+        return view('profile.user.edit', ['user' => $user]);
     }
     
     //ユーザー情報の更新->マイページ
     public function update(Request $request, $id)
     {
-        //validation まだ!!
         
         $user = User::find($id);
         $form = $request->all();

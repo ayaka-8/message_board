@@ -1,13 +1,13 @@
 <!-- プロフィール確認画面　-->
 <!-- ソリューション向け -->
-@extends('layouts.admin')
+@extends('layouts.common')
 @section('title', 'プロフィール入力内容確認')
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>プロフィール登録内容</h2>
-                <form action="{{ action('Admin\SolutionProfileController@show')" method="post">
+                <form action="{{ action('SolutionProfileController@show')" method="post">
                     <table class="table table-striped">
                     <tr><td>会社名</td><td>{{ $public_name }}</td></tr>
                     <tr><td>会社ロゴ</td>

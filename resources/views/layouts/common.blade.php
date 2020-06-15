@@ -42,6 +42,7 @@
                         </ul>
 
                         <!-- Right Side Of Navbar -->
+                        <!-- TODO: 各ページ名にリンク設定 -->
                         <ul class="navbar-nav ml-auto">
                             <li><a class="nav-link" href="#">ソリューション企業一覧</a></li>
                             <li><a class="nav-link" href="#">お悩み一覧</a></li>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,7 @@ class SolutionProfileController extends Controller
     //プロフィール新規登録入力
     public function add()
     {
-        return view('admin.profile.solution.create');
+        return view('profile.solution.create');
     }
     //プロフィール登録->マイページへ
     public function create(Request $request)
@@ -54,31 +54,34 @@ class SolutionProfileController extends Controller
             $my_profile = SolutionProfile::where('user_id', $id)->first();
         } 
         
-        return view('admin.profile.solution.mypage', [
+        return view('profile.solution.mypage', [
             'my_profile' => $my_profile,
             'user' => $user
-            ]);
+        ]);
     }
     //プロフィール編集
     public function edit(Request $request)
     {
         $my_profile = SolutionProfile::where('user_id', $request->id)->first();
-        return view('admin.profile.solution.edit', ['my_profile' => $my_profile]);
+        return view('profile.solution.edit', ['my_profile' => $my_profile]);
     }
     //プロフィール更新->マイページ
     public function update(Request $request, $id)
     {
+        /**
+        *バリデーションを実行し、エラーがなければデータを更新してマイページへ戻る
+        */
         //validation
         $this->validate($request, SolutionProfile::$rules);
         //プロフィールの取得
         $my_profile = SolutionProfile::where('user_id', $id)->first();
         $form = $request->all();
-        //画像の保存
-        //まだ!!
+        //TODO: 画像の保存
+        
         unset($form['_token']);
         // 該当するデータを上書きして保存する
         $my_profile->fill($form)->save();
-        
+        //マイページへ
         return redirect()->route('mypage.show', ['id' =>$my_profile->user_id ])->with('status', 'プロフィール情報を更新しました');
     } 
 
