@@ -11,8 +11,8 @@
         <div class="row">
             <div class="col-md-10 mx-auto">
                 <h2>マイページ</h2>
-                <div class="card">
-                    <div class="col-md-10 mx-auto">
+                <div class="card my-3">
+                    <div class="profile-group col-md-10 mx-auto my-3">
                         <h4>ユーザー登録内容</h4>
                         <div class="table-responsive-md">
                             <table class="table table-striped">
@@ -20,11 +20,13 @@
                                 <tr><td>メールアドレス</td><td>{{ $user->email }}</td></tr>
                             </table>
                         </div>
-                        <a href="{{ action('SolutionUserController@edit') }}" class="btn btn-primary">編集</a>
+                        <div class="text-center"> 
+                            <a href="{{ action('SolutionUserController@edit') }}" class="btn btn-primary pull-center">編集</a>
+                        </div> 
                     </div>
                 </div>
-                <div class="card">
-                    <div class="col-md-10 mx-auto">
+                <div class="card my-3">
+                    <div class="profile-group col-md-10 mx-auto my-3">
                        <h4>プロフィール登録内容</h4>
                        <div class="table-responsive-md">
                            @if ($my_profile) <!--プロフィール情報ある場合 -->
@@ -35,7 +37,7 @@
                                 <td>{{ $my_profile->logo_image }}</td>
                                 @endisset
                                 @empty($my_profile->logo_image)
-                                <td>登録されていません</td>
+                                <td><img src="/storage/noimage.png"></td>
                                 @endempty
                                 </tr>
                                 <tr><td>地域</td><td>{{ $my_profile->area }}</td></tr>
@@ -50,7 +52,7 @@
                                 <td>{{ $my_profile->solution_image }}</td>
                                 @endisset
                                 @empty($my_profile->solution_image)
-                                <td>登録されていません</td>
+                                <td><img src="/storage/noimage.png"></td>
                                 @endempty</tr>
                                 <tr><td>メッセージ</td><td>{{ $my_profile->message }}</td></tr>
                                 <tr><td>担当者からのメッセージ</td><td>{{ $my_profile->contact_message }}</td></tr>
@@ -59,16 +61,18 @@
                                 <td>{{ $my_profile->contact_image }}</td>
                                 @endisset
                                 @empty($my_profile->contact_image)
-                                <td>登録されていません</td>
+                                <td><img src="/storage/noimage.png"></td>
                                 @endempty</tr>
                                 <tr><td>担当者のメールアドレス</td><td>{{ $my_profile->contact_email }}</td></tr>
                             </table>
                          </div>
-                         <a href="{{ action('SolutionProfileController@edit') }}" class="btn btn-primary">編集</a>
-                         @else <!--プロフィール情報がなかった場合 -->
-                            <p>プロフィールは登録されていません</p>
-                            <a href="{{ action('SolutionProfileController@add') }}" class="btn btn-primary">登録</a>
-                        @endif
+                         <div class="text-center">
+                             <a href="{{ action('SolutionProfileController@edit') }}" class="btn btn-primary">編集</a>
+                             @else <!--プロフィール情報がなかった場合 -->
+                             <p>プロフィールは登録されていません</p>
+                             <a href="{{ action('SolutionProfileController@add') }}" class="btn btn-primary">登録</a>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div> 

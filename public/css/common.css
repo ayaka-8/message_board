@@ -39,3 +39,18 @@ body {
   background-color: #fff;
 }
 
+.media {
+  border: 1px solid #ced4da;
+  padding: 3px;
+  margin-top: 10px;
+  border-radius: 0.25rem;
+}
+
+.board-index {
+  margin: 0 75px;
+}
+
+.pagination {
+  justify-content: center;
+}
+

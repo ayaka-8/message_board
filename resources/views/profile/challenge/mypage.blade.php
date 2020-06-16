@@ -35,7 +35,7 @@
                                 <td>{{ $my_profile->logo_image }}</td>
                                 @endisset
                                 @empty($my_profile->logo_image)
-                                <td>登録されていません</td>
+                                <td><img src="/storage/noimage.png"></td>
                                 @endempty
                                 </tr>
                                 <tr><td>地域</td><td>{{ $my_profile->area }}</td></tr>
@@ -49,7 +49,7 @@
                                 <td>{{ $my_profile->solution_image }}</td>
                                 @endisset
                                 @empty($my_profile->solution_image)
-                                <td>登録されていません</td>
+                                <td><img src="/storage/noimage.png"></td>
                                 @endempty</tr>
                                 <tr><td>相談者が考える解決策</td><td>{{ $my_profile->challenge_method }}</td></tr>
                                 <tr><td>メッセージ</td><td>{{ $my_profile->message }}</td></tr>
@@ -59,7 +59,7 @@
                                 <td>{{ $my_profile->contact_image }}</td>
                                 @endisset
                                 @empty($my_profile->contact_image)
-                                <td>登録されていません</td>
+                                <td><img src="/storage/noimage.png"></td>
                                 @endempty</tr>
                                 <tr><td>担当者のメールアドレス</td><td>{{ $my_profile->contact_email }}</td></tr>
                             </table>

@@ -16,7 +16,7 @@
                 </div>
             </div><!-- ./card -->
             <!-- プロフィール情報がないユーザーに表示　-->
-            <div class="card text-center">
+            <div class="card text-center my-3">
                 <div class="card-body">
                     <p class="card-text">引き続きプロフィール情報の登録をお願いします。</p>
                 </div>
