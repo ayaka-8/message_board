@@ -52,3 +52,17 @@ body {
 .pagination {
   justify-content: center; 
 }
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
+}
+
+.media-body {
+  width: 100%;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
+}

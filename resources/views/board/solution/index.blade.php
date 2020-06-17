@@ -23,14 +23,19 @@
                     <h4>ソリューション企業一覧</h4>
                     @foreach($solution_boards as $board)
                     <div class="media">
+                        @isset($board->logo_image)
+                        <img src="{{ asset('public/solution/image/' . $board->logo_image) }}" class="mx-3">
+                        @endisset
+                        @empty($board->logo_image)
                         <img src="/storage/noimage.png" class="mx-3"><!-- TODO: alt -->
+                        @endempty
                         <div class="media-body px-2">
                             <h5 class="mt-0 ">ソリューションキーワード</h5>
                             <p>{{ $board->solution_keyword }}</p>
                             <h5 class="mt-0 ">ソリューション会社名</h5>
                             <p>{{ $board->public_name }}</p>
                             <div class="text-right">
-                                <a href="#" class="btn btn-primary">詳細ページへ</a>
+                                <a href="{{ action('SolutionBoardController@show', ['id' => $board->id]) }}" class="btn btn-primary">詳細ページへ</a>
                             </div>
                         </div>
                     </div>
@@ -39,27 +44,6 @@
                         {{ $solution_boards->links() }}
                     </div>
                 </div>
-                
-                <!--
-                <nav aria-label="Page navigation" class="my-3">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        <a class="page-link" href="{{ $solution_boards->links() }}" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="{{ $solution_boards->links() }}">1</a></li>
-                    <li class="page-item"><a class="page-link" href="{{ $solution_boards->links() }}">2</a></li>
-                    <li class="page-item"><a class="page-link" href="{{ $solution_boards->links() }}">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="{{ $solution_boards->links() }}" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav> -->
             </div>
             
         </div>

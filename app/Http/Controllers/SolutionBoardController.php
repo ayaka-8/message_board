@@ -24,4 +24,20 @@ class SolutionBoardController extends Controller
         return view('board.solution.index', ['solution_boards' => $solution_boards, 'search_keyword' => $search_keyword]);
     }
     
+    /**
+     * ソリューション企業詳細表示機能
+     */
+    public function show(Request $request)
+    {
+        $solution_board = SolutionProfile::find($request->id);
+        //ソリューションが複数ある場合
+        //リクエストされたもの以外のプロフィール情報を取得する
+        $other_boards = SolutionProfile::where([
+            ['id', '!=', $solution_board->id],
+            ['user_id', $solution_board->user_id]
+            ])->get();
+            
+        return view('board.solution.show', ['board' => $solution_board, 'other_boards' => $other_boards]);
+    }
+    
 }

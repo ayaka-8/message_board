@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function() {
  */
  //ソリューション企業一覧
 Route::get('solution/index', 'SolutionBoardController@index');
+Route::get('solution/{id}', 'SolutionBoardController@show');
 Route::get('/', function () {
     return view('welcome');
 });

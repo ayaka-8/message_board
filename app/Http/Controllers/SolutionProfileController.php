@@ -61,11 +61,11 @@ class SolutionProfileController extends Controller
         $user = Auth::user();
         //プロフィール情報がある場合ユーザーのプロフィール情報を取得
         if (SolutionProfile::where('user_id', $user->id)) {
-            $my_profile = SolutionProfile::where('user_id', $user->id)->first();
+            $my_profiles = SolutionProfile::where('user_id', $user->id)->get();
         } 
         
         return view('profile.solution.mypage', [
-            'my_profile' => $my_profile,
+            'my_profiles' => $my_profiles,
             'user' => $user
         ]);
     }

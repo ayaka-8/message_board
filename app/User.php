@@ -42,7 +42,7 @@ class User extends Authenticatable
      */
     public function solutionProfile()
     {
-        return $this->hasOne('App\SolutionProfile');
+        return $this->hasMany('App\SolutionProfile');
     }
     
     protected $guarded = array('id');
@@ -52,7 +52,7 @@ class User extends Authenticatable
      */
     public function challengeProfile()
     {
-        return $this->hasOne('App\ChallengeProfile');
+        return $this->hasMany('App\ChallengeProfile');
     }
     
 }
