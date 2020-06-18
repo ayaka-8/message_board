@@ -1,31 +1,31 @@
-<!-- ソリューション企業詳細 -->
+<!-- お悩み詳細 -->
 @extends('layouts.common')
-@section('title', 'ソリューション企業詳細')
+@section('title', 'お悩み詳細')
 @section('content')
     <div class="container">
         <div class="row">
-            <!-- ソリューション情報 -->
-            <div class="solution-group col-md-8 mx-auto">
+            <!-- お悩み情報 -->
+            <div class="challenge-group col-md-8 mx-auto">
                 <div class="card my-3">
-                    <h4 class="mt-2 px-2">ソリューション情報</h4>
+                    <h4 class="mt-2 px-2">お悩み情報</h4>
                     <div class="media col-md-10 col-sm mx-auto">
                         <!-- TODO: 画像が複数あった場合の配置 -->
-                        @isset($solution_board->solution_image)
-                        <img src="{{asset('public/solution/image/' . $board->solution_image) }}" class="img-fluid mr-3 mx-3">
+                        @isset($challenge_board->challenge_image)
+                        <img src="{{asset('public/challenge/image/' . $board->challenge_image) }}" class="img-fluid mr-3 mx-3">
                         @endisset
-                        @empty($board->solution_image)
+                        @empty($board->challenge_image)
                         <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
                         @endempty
                         <div class="media-body col-md-8 col-sm mx-auto px-2">
-                            <h5 class="mt-0">ソリューションキーワード</h5>
-                            <p>{{ $board->solution_keyword }}</p>
+                            <h5 class="mt-0">お悩みキーワード</h5>
+                            <p>{{ $board->challenge_keyword }}</p>
                         </div>
                     </div>
-                    <div class="solution-others col-md-10 mx-auto px-2">
-                        <h5 class="mt-2">ソリューション内容</h5>
-                        <p>{{ $board->solution_detail }}</p>
-                        <h5 class="mt-0">ソリューション実績</h5>
-                        <p>{{ $board->solution_performance }}</p>
+                    <div class="challenge-others col-md-10 mx-auto px-2">
+                        <h5 class="mt-2">現在の状況や課題</h5>
+                        <p>{{ $board->challenge_detail }}</p>
+                        <h5 class="mt-0">相談者が考える解決策</h5>
+                        <p>{{ $board->challenge_method }}</p>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     <h4 class="mt-2 px-2">会社情報</h4>
                     <div class="media col-md-10 mx-auto">
                         @isset($board->logo_image)
-                        <img src="{{asset('public/solution/image/' . $board->logo_image) }}" class="img-fluid mr-3 mx-3">
+                        <img src="{{asset('public/challenge/image/' . $board->logo_image) }}" class="img-fluid mr-3 mx-3">
                         @endisset
                         @empty($board->logo_image)
                         <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
@@ -65,7 +65,7 @@
                     <h4 class="mt-2 px-2">担当者情報</h4>
                     <div class="media col-md-10 mx-auto">
                         @isset($board->contact_image)
-                        <img src="{{asset('public/solution/image/' . $board->contact_image) }}" class="img-fluid mr-3 mx-3">
+                        <img src="{{asset('public/challenge/image/' . $board->contact_image) }}" class="img-fluid mr-3 mx-3">
                         @endisset
                         @empty($board->contact_image)
                         <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
@@ -80,16 +80,16 @@
                     </div>
                 </div>
             </div>
-            <!-- 他のソリューション情報がある場合 -->
+            <!-- 他のお悩み情報がある場合 -->
             @if(count($other_boards) > 0)
             <div class="other-info col-md-8 mx-auto">
-                <h4 class="my-2">この企業が持つその他のソリューション</h4>
+                <h4 class="my-2">この企業が持つその他のお悩み</h4>
                 @foreach($other_boards as $board)
                 <div class="card my-3">
-                    <h5 class="mt-2 ml-2">ソリューションキーワード</h5>
-                    <p>{{ $board->solution_keyword }}</p>
+                    <h5 class="mt-2 ml-2">お悩みキーワード</h5>
+                    <p>{{ $board->challenge_keyword }}</p>
                     <div class="text-right mb-2 mr-2">
-                        <a href="{{ action('SolutionBoardController@show', ['id' => $board->id]) }}" class="btn btn-primary">詳細ページへ</a>
+                        <a href="{{ action('ChallengeBoardController@show', ['id' => $board->id]) }}" class="btn btn-primary">詳細ページへ</a>
                     </div>
                 </div>
                 @endforeach

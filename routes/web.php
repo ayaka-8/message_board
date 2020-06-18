@@ -40,9 +40,13 @@ Route::group(['middleware' => 'auth'], function() {
 /**
  * 一般ユーザー向けページ
  */
- //ソリューション企業一覧
+ //ソリューション企業一覧、詳細
 Route::get('solution/index', 'SolutionBoardController@index');
 Route::get('solution/{id}', 'SolutionBoardController@show');
+//お悩み一覧、詳細
+Route::get('challenge/index', 'ChallengeBoardController@index');
+Route::get('challenge/{id}', 'ChallengeBoardController@show');
+
 Route::get('/', function () {
     return view('welcome');
 });

@@ -59,11 +59,11 @@ class ChallengeProfileController extends Controller
         $user = Auth::user();
         //プロフィール情報がある場合ユーザーのプロフィール情報を取得
         if (ChallengeProfile::where('user_id', $user->id)) {
-            $my_profile = ChallengeProfile::where('user_id', $user->id)->first();
+            $my_profiles = ChallengeProfile::where('user_id', $user->id)->get();
         } 
         
         return view('profile.challenge.mypage', [
-            'my_profile' => $my_profile,
+            'my_profiles' => $my_profiles,
             'user' => $user
         ]);
     }

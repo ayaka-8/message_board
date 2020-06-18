@@ -11,24 +11,28 @@
         <div class="row">
             <div class="col-md-10 mx-auto">
                 <h2>マイページ</h2>
-                <div class="card">
-                    <div class="col-md-10 mx-auto">
+                <div class="card my-3">
+                    <div class="user-group col-md-10 mx-auto my-3">
                         <h4>ユーザー登録内容</h4>
-                        <div class="table-responsive-md">
-                            <table class="table table-striped">
-                                <tr><td>ユーザー名</td><td>{{ $user->name }}</td></tr>
-                                <tr><td>メールアドレス</td><td>{{ $user->email }}</td></tr>
-                            </table>
+                            <div class="user card my-2">
+                                <table class="table table-striped">
+                                    <tr><td>ユーザー名</td><td>{{ $user->name }}</td></tr>
+                                    <tr><td>メールアドレス</td><td>{{ $user->email }}</td></tr>
+                                </table>
+                            </div>
+                        <div class="text-center">
+                            <a href="{{ action('ChallengeUserController@edit') }}" class="btn btn-primary pull-center">編集</a>
                         </div>
-                        <a href="{{ action('ChallengeUserController@edit') }}" class="btn btn-primary">編集</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="col-md-10 mx-auto">
+                <div class="card my-3">
+                    <div class="profile-group col-md-10 mx-auto my-3">
                        <h4>プロフィール登録内容</h4>
-                       <div class="table-responsive-md">
-                           @if ($my_profile) <!--プロフィール情報ある場合 -->
-                           <table class="table table-striped">
+                       <!--プロフィール情報ある場合 -->
+                       @if ($my_profiles) 
+                       @foreach($my_profiles as $my_profile)
+                       <div class="profile card my-2">
+                            <table class="table table-striped">
                                 <tr><td>会社名</td><td>{{ $my_profile->public_name }}</td></tr>
                                 <tr><td>会社ロゴ</td>
                                 @isset($my_profile->logo_image)
@@ -63,12 +67,17 @@
                                 @endempty</tr>
                                 <tr><td>担当者のメールアドレス</td><td>{{ $my_profile->contact_email }}</td></tr>
                             </table>
-                         </div>
-                         <a href="{{ action('ChallengeProfileController@edit') }}" class="btn btn-primary">編集</a>
-                         @else <!--プロフィール情報がなかった場合 -->
-                            <p>プロフィールは登録されていません</p>
-                            <a href="{{ action('ChallengeProfileController@add') }}" class="btn btn-primary">登録</a>
-                        @endif
+                            <div class="text-center my-2 px-2">
+                                <a href="{{ action('ChallengeProfileController@edit') }}" class="btn btn-primary">編集</a>
+                            </div>
+                            </div>
+                            @endforeach
+                            @else <!--プロフィール情報がなかった場合 -->
+                            <div class="text-center my-2 px-2">
+                               <p>プロフィールは登録されていません</p>
+                                <a href="{{ action('ChallengeProfileController@add') }}" class="btn btn-primary">登録</a>
+                           </div>
+                           @endif
                     </div>
                 </div>
             </div> 
