@@ -41,7 +41,7 @@
                         <!-- TODO: 各ページ名にリンク設定 -->
                         <ul class="navbar-nav ml-auto">
                             <li><a class="nav-link" href="/solution/index">ソリューション企業一覧</a></li>
-                            <li><a class="nav-link" href="#">お悩み一覧</a></li>
+                            <li><a class="nav-link" href="/challenge/index">お悩み一覧</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">新規登録</a></li>
                             <!-- Authentication Links -->
                         @guest
@@ -51,8 +51,8 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- TODO: マイページへのリンク --> 
                                     <a class="dropdown-item" href="#" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">マイページ</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

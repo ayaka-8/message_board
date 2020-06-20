@@ -163,6 +163,8 @@ return [
         'challenge_keyword' => 'お悩みに関するキーワード',
         'challenge_detail' => '現在の状況や課題',
         'challenge_image' => '現在の状況に関する画像',
-        'challenge_method' => '相談者が考える解決策'],
+        'challenge_method' => '相談者が考える解決策',
+        'subject' => 'お問い合わせ項目',
+        'content' => 'お問い合わせ内容'],
 
 ];

@@ -1,5 +1,4 @@
 <!-- ソリューション企業向けプロフィール登録画面 -->
-<!-- エラーメッセージ の表示 -->
 
 @extends('layouts.common')
 @section('title', 'プロフィール登録')
@@ -9,7 +8,7 @@
             <div class="col-md-9 mx-auto">
                 <h2>プロフィール登録（日本企業向け）</h2>
                 <form action="{{ action('SolutionProfileController@create') }}" method="post" enctype="multipart/form-data">
-
+                    <!-- エラーメッセージ の表示 -->
                     @if (count($errors) > 0)
                         <div class="alert alert-danger" role="alert">
                             入力に問題があります。再入力してください。
@@ -33,7 +32,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">地域名</label></label>
+                        <label class="col-md-3">地域名</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="area" value="{{ old('area') }}">
                             @if ($errors->has('area'))
