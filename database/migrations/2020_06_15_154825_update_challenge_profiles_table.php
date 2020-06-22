@@ -13,10 +13,10 @@ class UpdateChallengeProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::table('challenge_profiles', function (Blueprint $table) {
+         Schema::table('challenge_profiles', function (Blueprint $table) {
             //user_idカラムの追加
             $table->integer('user_id');
-        });
+        }); 
     }
 
     /**
@@ -27,7 +27,8 @@ class UpdateChallengeProfilesTable extends Migration
     public function down()
     {
         Schema::table('challenge_profiles', function (Blueprint $table) {
-            //
+            //user_idカラムの削除
+            $table->dropColumn('user_id');
         });
     }
 }

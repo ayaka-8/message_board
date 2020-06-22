@@ -19,4 +19,12 @@ class SolutionContact extends Model
         'ソリューションの内容について',
         'その他'
         ];
+        
+    /**
+     * solution_profilesテーブルとリレーション
+     */ 
+    public function solutionProfile()
+    {
+        return $this->belongsTo('App\SolutionProfile');
+    }
 }   

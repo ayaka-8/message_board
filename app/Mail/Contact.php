@@ -34,7 +34,8 @@ class Contact extends Mailable
                 ->to($this->contact['to'], $this->contact['to_name'])
                 ->from($this->contact['from'], $this->contact['from_name'])
                 ->subject($this->contact['subject'])
-                ->with(['contact' => $this->contact,
+                ->with(['contact' => $this->contact
                 ]);
+                
     }
 }

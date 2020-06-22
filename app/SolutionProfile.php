@@ -29,4 +29,12 @@ class SolutionProfile extends Model
     {
         return $this->belongsTo('App\User');
     }
+    
+    /**
+     * solution_contactsテーブルとリレーション
+     */ 
+    public function solutionContact()
+    {
+        return $this->hasMany('App\SolutionContact');
+    }
 }

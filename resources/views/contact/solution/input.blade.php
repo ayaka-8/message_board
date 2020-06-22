@@ -22,7 +22,8 @@
                                 <!-- お問い合わせしたい企業名の表示 -->
                                 <label class="control-label col-md-3 mx-auto">お問い合わせしたい企業</label>
                                 <div class="col-md-9">
-                                    <input class="form-control" type="hidden" name="recipient_id" id="InputRecipientId" value="{{ old('recipient_id, $recipient->user_id) }}">
+                                    <!-- お問い合わせしたい企業のid　-->
+                                    <input class="form-control" type="hidden" name="recipient_id" id="InputRecipientId" value="{{ old('recipient_id', $recipient->user_id) }}">
                                     <input class="form-control" name="recipient_name" type="text" id="InputRecipientName" value="{{ old('recipient_name', $recipient->public_name) }}" readonly> 
                                 </div>
                                 <label class="control-label col-md-3 mx-auto">お問い合わせ項目</label>
@@ -43,6 +44,8 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3 mx-auto">名前</label>
                                 <div class="col-md-9">
+                                    <!-- ログインユーザーのidを取得 -->
+                                    <input class="form-control" type="hidden" name="user_id" id="InputUserId" value="{{ old('user_id', $user_id) }}">
                                     <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                                     @if ($errors->has('name'))
                                     <div class="text-danger">

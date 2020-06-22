@@ -20,12 +20,13 @@
                             <tr><td>お問い合わせ内容</td><td>{{ $contact->content }}</td></tr>
                         </table>
                         <form action="{{ action('SolutionContactController@complete') }}" method="post">
-                            <input type="hidden" name="recipient_id" class="form-control" id="InputrecipientId" value="{{ $contact->recipient_id }}">
-                            <input type="hidden" name="recipient_name" class="form-control" id="InputrecipientName" value="{{ $contact->recipient_name }}">
+                            <input type="hidden" name="recipient_id" class="form-control" id="InputRecipientId" value="{{ $contact->recipient_id }}">
+                            <input type="hidden" name="recipient_name" class="form-control" id="InputRecipientName" value="{{ $contact->recipient_name }}">
                             <input type="hidden" name="subject" class="form-control" id="InputSubject" value="{{ $contact->subject }}">
                             <input type="hidden" name="name" class="form-control" id="InputName" value="{{ $contact->name }}">
                             <input type="hidden" name="email" class="form-control" id="InputEmail" value="{{ $contact->email }}">
                             <input type="hidden" name="content" class="form-control"id="InputContent" value="{{ $contact->content }}">
+                            <input type="hidden" name="user_id" class="form-control"id="InputUserId" value="{{ $contact->user_id }}">
                             {{ csrf_field() }}
                             <div class="d-flex justify-content-center">
                                 <button type="submit" name="action" class="btn btn-secondary my-2 mx-2" value="back">戻る</button>
