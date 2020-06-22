@@ -5,41 +5,41 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use App\SolutionContact;
+use App\ChallengeContact;
 use App\Mail\Contact;
-use App\SolutionProfile;
+use App\ChallengeProfile;
 
 
-class SolutionContactController extends Controller
+class ChallengeContactController extends Controller
 {
     /**
-     * ソリューション企業宛てお問い合わせ内容の入力、確認、送信機能
+     * お悩み企業宛てお問い合わせ内容の入力、確認、送信機能
      */
     //お問い合わせ内容入力
     public function input(Request $request)
     {
         //お問い合わせ項目の内容を$subjectsに代入
-        $subjects = SolutionContact::$subjects;
+        $subjects = ChallengeContact::$subjects;
         //問い合わせしたい企業のuser_idを取得
-        $recipient_id = SolutionProfile::find($request->id)->user_id;
+        $recipient_id = ChallengeProfile::find($request->id)->user_id;
         //問い合わせしたい企業のpublic_nameを取得
-        $recipient_name = SolutionProfile::find($request->id)->public_name;
+        $recipient_name = ChallengeProfile::find($request->id)->public_name;
         //ログインユーザーのidを取得
         $user_id = Auth::id();
         
-        return view('contact.solution.input', ['subjects' => $subjects, 'recipient_id' => $recipient_id, 'recipient_name' => $recipient_name, 'user_id' => $user_id]);
+        return view('contact.challenge.input', ['subjects' => $subjects, 'recipient_id' => $recipient_id, 'recipient_name' => $recipient_name, 'user_id' => $user_id]);
     }
     
     //お問い合わせ内容確認
     public function confirm(Request $request)
     {
         //validation
-        $this->validate($request, SolutionContact::$rules);
+        $this->validate($request, ChallengeContact::$rules);
         //（戻るボタンが押された時の為に)入力された内容を保存
-        $contact_form = new SolutionContact($request->all());
+        $contact_form = new ChallengeContact($request->all());
         unset($contact_form['_token']);
         
-        return view('contact.solution.confirm', ['contact' => $contact_form]);
+        return view('contact.challenge.confirm', ['contact' => $contact_form]);
     }
     
     //入力内容のデータ保存及びメールの送信->お問い合わせ完了画面
@@ -49,11 +49,11 @@ class SolutionContactController extends Controller
         //戻るボタンが押された場合
         if($request->action === 'back') {
             //問い合わせしたい企業のプロフィールidを取得し、パラメーターとして渡す
-            $profile_id = SolutionProfile::where('user_id', $request->recipient_id)->first()->id;
-            return redirect()->action('SolutionContactController@input', ['id' => $profile_id])->withInput($contact_form);
+            $profile_id = ChallengeProfile::where('user_id', $request->recipient_id)->first()->id;
+            return redirect()->action('ChallengeContactController@input', ['id' => $profile_id])->withInput($contact_form);
         }
         //データを保存
-        SolutionContact::create($request->except('action'));
+        ChallengeContact::create($request->except('action'));
         //二重送信防止
         $request->session()->regenerateToken();
         //メール送信

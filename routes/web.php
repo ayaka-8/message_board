@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function() {
  */
 Route::group(['middleware' => 'auth'], function() {
     //お悩み企業宛て
-    Route::get('challenge/contact/{id}', 'ChallengeContactController@input');
+    Route::get('challenge/contact', 'ChallengeContactController@input');
     Route::post('challenge/contact/confirm', 'ChallengeContactController@confirm');
     Route::post('challenge/contact/complete', 'ChallengeContactController@complete');
     //ソリューション企業宛て
@@ -50,10 +50,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('solution/contact/complete', 'SolutionContactController@complete');
 });
 
-/**Route::get('/mailable', function () {
-    $contact = SolutionContact::find(1);
-    return new App\Mail\Contact($contact);
-}); */
 /**
  * 一般ユーザー向けページ
  */

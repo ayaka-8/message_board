@@ -29,4 +29,11 @@ class ChallengeProfile extends Model
     {
         return $this->belongsTo('App\User');
     }
+    /**
+     * challenge_contactsテーブルとリレーション
+     */
+    public function challengeContact()
+    {
+        return $this->hasMany('App\ChallengeContact');
+    }
 }

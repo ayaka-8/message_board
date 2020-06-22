@@ -1,4 +1,4 @@
-<!-- ソリューション企業お問合わせ画面 -->
+<!-- お悩み企業お問合わせ画面 -->
 
 @extends('layouts.common')
 @section('title', 'お問い合わせページ')
@@ -11,7 +11,7 @@
                         <h4>お問い合わせ</h4>
                     </div>
                     <div class="body px-2 py-2">
-                        <form action="{{ action('SolutionContactController@confirm') }}" method="post">
+                        <form action="{{ action('ChallengeContactController@confirm') }}" method="post">
                             <!--エラーメッセージの表示 -->
                             @if (count($errors) > 0)
                             <div class="alert alert-danger" role="alert">

@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="text-center my-2 px-2">
-                            <a href="#" class="btn btn-primary">担当者に聞いてみる</a>
+                            <a href="{{ action('ChallengeContactController@input', ['id' => $board->id]) }}" class="btn btn-primary">担当者に聞いてみる</a>
                         </div>
                     </div>
                 </div>
