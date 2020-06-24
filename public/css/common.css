@@ -22,6 +22,20 @@ body {
   color: #fff;
 }
 
+.jumbotron-extend {
+  position: relative;
+  height: 70vh;
+  min-height: 200px;
+  background: url("../images/top_image.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.jumbotron-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .list-group-item {
   border-color: #fff;
   background-color: #000;
@@ -67,4 +81,3 @@ body {
   word-break: break-all;
   word-wrap: break-all;
 }
-

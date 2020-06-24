@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </nav>
-            <main class="py-4">
+            <main>
                 {{-- コンテンツをここに入れる --}}
                 @yield('content')
             </main>

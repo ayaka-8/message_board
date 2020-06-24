@@ -60,6 +60,7 @@ Route::get('solution/{id}', 'SolutionBoardController@show');
 Route::get('challenge/index', 'ChallengeBoardController@index');
 Route::get('challenge/{id}', 'ChallengeBoardController@show');
 
+Route::get('top','TopController@index');
 Route::get('/', function () {
     return view('welcome');
 });
