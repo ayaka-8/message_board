@@ -3,11 +3,7 @@
 @extends('layouts.common')
 @section('title', 'マイページ')
 @section('content')
-    <!-- Flashメッセージを表示 -->
-    @if (session('status'))
-    <div class="alert alert-success text-center" role="alert"  onclick="this.classList.add('hidden')">{{ session('status') }}</div>
-    @endif
-    <div class="container">
+    <div class="container py-4">
         <div class="row">
             <div class="col-md-10 mx-auto">
                 <h2>マイページ</h2>

@@ -47,10 +47,6 @@ class ChallengeProfileController extends Controller
         //データベース に保存
         $challenge_profile->fill($form);
         $challenge_profile->save();
-        //sessionにお悩みユーザーであることを保存
-        //Session::put('challenge', $challenge_profile->id);
-        
-        //$challenge_user = Session::has('challenge');
         //マイページへ
         return redirect()->route('challenge.mypage.show')->with('status', 'プロフィールを登録しました');
     }

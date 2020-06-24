@@ -1,8 +1,23 @@
+.jumbotron-extend {
+  position: relative;
+  height: 70vh;
+  min-height: 200px;
+  background: url("../images/top_image.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.jumbotron-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 body {
   background-repeat: no-repeat;
   background-position: center;
   background-color: #fff;
   color: #000;
+  padding-top: 60px;
 }
 
 .navbar-laravel {
@@ -20,20 +35,6 @@ body {
 
 .table-dark {
   color: #fff;
-}
-
-.jumbotron-extend {
-  position: relative;
-  height: 70vh;
-  min-height: 200px;
-  background: url("../images/top_image.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.jumbotron-container {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .list-group-item {

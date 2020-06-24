@@ -3,7 +3,7 @@
 @section('title', '発見　世界のビジネスチャンス')
 @section('content')
     <!--top part-->
-    <div class="jumbotron jumbotron-fluid jumbotron-extend mb-0">
+    <div class="jumbotron jumbotron-fluid jumbotron-extend mb-0 pt-0">
         <div class="container-fluid jumbotron-container">
             <h1>世界を舞台に</h1>
         </div>
@@ -11,16 +11,13 @@
     <!--サイト紹介-->
     <div class="jumbotron jumbotron-fluid text-center" style="background-color: white;">
         <div class="container-fluid">
-            <!--<div class="text-center">-->
                 <h3>日本の技術で世界のお悩みを解決</h3>
                 <p class="lead">このサイトは日本の中小企業と悩みを抱える海外の企業や自治体の情報を掲示し、ビジネスチャンスにつなげる掲示板サイトです。</p>
-            <!--</div>-->
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-10 mx-auto">
-                
                 <!--新着情報-->
                 <div class="latest-info col-md-10 mx-auto">
                     <div class="card my-3">

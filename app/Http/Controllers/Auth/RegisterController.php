@@ -28,7 +28,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected function registered() {
+        //登録->マイページへ
+        return redirect('/mypage')->with('status', 'ユーザー情報を登録しました');
+    }
 
     /**
      * Create a new controller instance.

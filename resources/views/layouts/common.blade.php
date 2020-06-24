@@ -22,7 +22,7 @@
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
+            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel fixed-top">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', '発見 世界のビジネスチャンス') }}
@@ -32,13 +32,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-
-                        </ul>
-
                         <!-- Right Side Of Navbar -->
-                        <!-- TODO: 各ページ名にリンク設定 -->
                         <ul class="navbar-nav ml-auto">
                             <li><a class="nav-link" href="/solution/index">ソリューション企業一覧</a></li>
                             <li><a class="nav-link" href="/challenge/index">お悩み一覧</a></li>
@@ -47,14 +41,12 @@
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
                         @else
+                            <li><a class="nav-link" href="{{ route('mypage.show') }}">マイページ</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <!-- TODO: マイページへのリンク --> 
-                                    <a class="dropdown-item" href="#" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">マイページ</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -72,7 +64,12 @@
                     </div>
                 </div>
             </nav>
-            <main>
+            @if(session('status'))
+            <div class="alert alert-success text-center" role="alert">
+            {{ session('status') }}
+            </div>
+            @endif
+            <main class="py-4">
                 {{-- コンテンツをここに入れる --}}
                 @yield('content')
             </main>
