@@ -65,6 +65,7 @@
                     </div>
                 </div>
             </nav>
+            <!--フラッシュメッセージの表示-->
             @if(session('status'))
             <div class="alert alert-success text-center" role="alert">
             {{ session('status') }}
@@ -75,5 +76,12 @@
                 @yield('content')
             </main>
         </div>
+        <!--footer-->
+        <footer class="footer mt-4">
+            <div class="container mt-3">
+                 <small class="text-muted mt-5">発見　世界のビジネスチャンス</small>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

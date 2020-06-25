@@ -14,8 +14,9 @@ class CreateChallengeContactsTable extends Migration
     public function up()
     {
         Schema::create('challenge_contacts', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('email');
             $table->string('subject');
@@ -23,6 +24,13 @@ class CreateChallengeContactsTable extends Migration
             $table->integer('recipient_id');
             $table->string('recipient_name');
             $table->timestamps();
+        });
+        //user_id外部キー制約
+        Schema::table('challenge_contacts', function ($table) {
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 

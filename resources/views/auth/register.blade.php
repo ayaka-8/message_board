@@ -1,7 +1,7 @@
 @extends('layouts.common')
 @section('title', '新規登録')
 @section('content')
-<div class="containers">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -62,10 +62,10 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="text-center col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('messages.Register') }}
-                                </button>{{-- 確認画面へのリンクに変える --}}
+                                </button>
                             </div>
                         </div>
                     </form>
