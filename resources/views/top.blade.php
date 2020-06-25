@@ -1,6 +1,9 @@
 <!-- トップページ -->
 @extends('layouts.common')
 @section('title', '発見　世界のビジネスチャンス')
+@section('stylesheet')
+<link href="{{ secure_asset('css/home.css') }}" rel="stylesheet">
+@endsection
 @section('content')
     <!--top part-->
     <div class="jumbotron jumbotron-fluid jumbotron-extend mb-0 pt-0">

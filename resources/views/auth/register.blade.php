@@ -1,5 +1,5 @@
 @extends('layouts.common')
-
+@section('title', '新規登録')
 @section('content')
 <div class="containers">
     <div class="row justify-content-center">

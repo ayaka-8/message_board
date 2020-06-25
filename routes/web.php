@@ -19,8 +19,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('profile/challenge/create', 'ChallengeProfileController@create');
     Route::get('profile/challenge/edit', 'ChallengeProfileController@edit');
     Route::post('profile/challenge/edit', 'ChallengeProfileController@update');
-    Route::get('profile/challenge/edit', 'ChallengeProfileController@edit');
-    Route::post('profile/challenge/edit', 'ChllangeProfileController@update');
     //お悩み企業向けユーザー情報の編集、更新
     Route::get('profile/challenge/mypage/user/edit', 'ChallengeUserController@edit');
     Route::post('profile/challenge/mypage/user/edit', 'ChallengeUserController@update');
@@ -33,7 +31,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('profile/solution/mypage/user/edit', 'SolutionUserController@edit');
     Route::post('profile/solution/mypage/user/edit', 'SolutionUserController@update');
     //お悩み・ソリューション共通マイページ
-    Route::get('mypage', 'MypageController@show')->name('mypage.show');
+    Route::get('mypage', 'MypageController@show')->name('mypage');
 });
 /**
  * ログイン済みユーザー向けお問い合わせページ
@@ -59,11 +57,11 @@ Route::get('solution/{id}', 'SolutionBoardController@show');
 Route::get('challenge/index', 'ChallengeBoardController@index');
 Route::get('challenge/{id}', 'ChallengeBoardController@show');
 
-Route::get('top','TopController@index');
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index')->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

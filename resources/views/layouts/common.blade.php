@@ -19,6 +19,7 @@
         {{-- CSSの読み込み --}}
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/common.css') }}" rel="stylesheet">
+        @yield('stylesheet')
     </head>
     <body>
         <div id="app">
@@ -41,7 +42,7 @@
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
                         @else
-                            <li><a class="nav-link" href="{{ route('mypage.show') }}">マイページ</a></li>
+                            <li><a class="nav-link" href="{{ route('mypage') }}">マイページ</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -69,7 +70,7 @@
             {{ session('status') }}
             </div>
             @endif
-            <main class="py-4">
+            <main class="main-margin">
                 {{-- コンテンツをここに入れる --}}
                 @yield('content')
             </main>

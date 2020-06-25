@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
     protected function authenticated() {
         
-        return  redirect('/mypage')->with('status', 'ログインしました');
+        return  redirect('mypage')->with('status', 'ログインしました');
     }
     /**
      * Create a new controller instance.
@@ -48,6 +48,6 @@ class LoginController extends Controller
         $this->guard()->logout();
         $request->session()->invalidate();
         //ログアウト->top画面へ
-        return redirect('/top');
+        return redirect('/');
     }
 }

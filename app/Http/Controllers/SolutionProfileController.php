@@ -49,7 +49,7 @@ class SolutionProfileController extends Controller
         $solution_profile->fill($form);
         $solution_profile->save();
         //マイページへ
-        return redirect()->route('solution.mypage.show')->with('status', 'プロフィールを登録しました');
+        return redirect()->route('mypage')->with('status', 'プロフィールを登録しました');
     }
     
     /**
@@ -99,7 +99,7 @@ class SolutionProfileController extends Controller
         // 該当するデータを上書きして保存する
         $my_profile->fill($form)->save();
         //マイページへ
-        return redirect()->route('solution.mypage.show')->with('status', 'プロフィール情報を更新しました');
+        return redirect()->route('mypage')->with('status', 'プロフィール情報を更新しました');
     } 
 
 }

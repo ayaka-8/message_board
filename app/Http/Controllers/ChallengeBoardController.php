@@ -13,10 +13,13 @@ class ChallengeBoardController extends Controller
      */
     public function index(Request $request)
     {
+        //キーワード検索機能
         $search_keyword = $request->search_keyword;
-        if ($search_keyword != '') {
+        if (!empty($search_keyword)) {
             //検索されたら検索結果を表示
-            $challenge_boards = ChallengeProfile::where('challenge_keyword', $search_keyword)->paginate(5);
+            $challenge_boards = ChallengeProfile::where('challenge_keyword', 'like', '%'.$search_keyword.'%')
+            ->OrWhere('challenge_keyword', 'like', '%'.$search_keyword.'%')
+            ->paginate(5);
         } else {
           //それ以外は全てのプロフィールを取得する
             $challenge_boards = ChallengeProfile::orderBy('public_name', 'desc')->paginate(5);

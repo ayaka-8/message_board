@@ -1,0 +1,48 @@
+body {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+  color: #000;
+  padding-top: 45px;
+}
+
+.navbar-laravel {
+  background-color: #000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+  color: #fff !important;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.table-dark {
+  color: #fff;
+}
+
+.main-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.jumbotron-extend {
+  position: relative;
+  height: 70vh;
+  min-height: 200px;
+  background: url("../images/top_image.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.jumbotron-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.list-group-item {
+  border-color: #fff;
+  background-color: #000;
+}

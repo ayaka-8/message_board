@@ -13,10 +13,13 @@ class SolutionBoardController extends Controller
      */
     public function index(Request $request)
     {
+        //キーワード検索機能
         $search_keyword = $request->search_keyword;
-        if ($search_keyword != '') {
+        if (!empty($search_keyword)) {
             //検索されたら検索結果を表示
-            $solution_boards = SolutionProfile::where('solution_keyword', $search_keyword)->paginate(5);
+            $solution_boards = SolutionProfile::where('solution_keyword', 'like', '%'.$search_keyword.'%')
+            ->OrWhere('solution_keyword', 'like', '%'.$search_keyword.'%')
+            ->paginate(5);
         } else {
           //それ以外は全てのプロフィールを取得する
             $solution_boards = SolutionProfile::orderBy('public_name', 'desc')->paginate(5);

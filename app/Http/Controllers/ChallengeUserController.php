@@ -25,6 +25,6 @@ class ChallengeUserController extends Controller
         $user->fill($form)->save();
         
         //マイページへ
-        return redirect()->route('challenge.mypage.show')->with('status', 'ユーザー情報を更新しました');
+        return redirect()->route('mypage')->with('status', 'ユーザー情報を更新しました');
     }
 }

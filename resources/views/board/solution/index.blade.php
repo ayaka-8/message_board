@@ -24,6 +24,7 @@
                 <div class="board-index col-md-8 mx-auto">
                     <div class="content px-2 py-2">
                         <h4>ソリューション企業一覧</h4>
+                        @if(count($solution_boards) > 0)
                         @foreach($solution_boards as $board)
                         <div class="media">
                             @isset($board->logo_image)
@@ -43,6 +44,14 @@
                             </div>
                         </div>
                     @endforeach
+                    <!--検索条件に合うデータがなかった場合-->
+                    @else
+                    <div class="card no-board text-center my-3">
+                        <div class="card-body">
+                            <p class="card-text">検索条件を変えてもう一度検索してください</p>
+                        </div>
+                    </div>
+                    @endif
                     </div>
                     <div class="pagination text-center my-3">
                         {{ $solution_boards->links() }}

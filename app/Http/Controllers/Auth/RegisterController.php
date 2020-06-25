@@ -30,7 +30,7 @@ class RegisterController extends Controller
      */
     protected function registered() {
         //登録->マイページへ
-        return redirect('/mypage')->with('status', 'ユーザー情報を登録しました');
+        return redirect('mypage')->with('status', 'ユーザー情報を登録しました');
     }
 
     /**
