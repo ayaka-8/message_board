@@ -8,6 +8,9 @@ class ChallengeProfile extends Model
 {
     protected $guarded = array('id');
     
+    /**
+     * お悩みプロフィールのバリデーション
+     */
     public static $rules = array(
         'public_name' => 'required',
         'area' => 'required',

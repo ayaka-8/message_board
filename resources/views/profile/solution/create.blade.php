@@ -155,9 +155,9 @@
                     </div>
                     {{ csrf_field() }}
                     <div class="form-group row mb-0">
-                            <div class="text-center col-md-6 offset-md-4">
-                                <input type="submit" class="btn btn-primary" value="登録">
-                            </div>
+                        <div class="text-center col-md-6 offset-md-4">
+                            <input type="submit" class="btn btn-primary" value="登録">
+                        </div>
                     </div>
                 </form>
             </div>

@@ -45,6 +45,7 @@ class ChallengeContactController extends Controller
     //入力内容のデータ保存及びメールの送信->お問い合わせ完了画面
     public function complete(Request $request)
     {
+        //入力内容の取得
         $contact_form = $request->except('action');
         //戻るボタンが押された場合
         if($request->action === 'back') {

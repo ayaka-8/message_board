@@ -9,6 +9,9 @@ use App\User;
 
 class SolutionUserController extends Controller
 {
+    /**
+     * マイページ内ユーザー情報の編集、更新
+     */
     //ユーザー情報の編集
     public function edit()
     {
@@ -25,7 +28,6 @@ class SolutionUserController extends Controller
         unset($form['_token']);
         $user->fill($form)->save();
         
-        //マイページへ
         return redirect()->route('mypage')->with('status', 'ユーザー情報を更新しました');
     }
     

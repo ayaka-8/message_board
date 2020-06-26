@@ -38,7 +38,7 @@
                             <li><a class="nav-link" href="/solution/index">ソリューション企業一覧</a></li>
                             <li><a class="nav-link" href="/challenge/index">お悩み一覧</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">新規登録</a></li>
-                            <!-- Authentication Links -->
+                        <!-- Authentication Links -->
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
                         @else

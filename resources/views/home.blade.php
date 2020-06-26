@@ -32,7 +32,6 @@
                                     @if (count($solutions) > 0)
                                     @foreach ($solutions as $solution)
                                     　<div class="solution-group">
-                                    　    
                                     　   <div class="col-md-4">{{ $solution->updated_at }}</div>
                                     　   <div class="col-md-8">
                                     　       <a href="{{ action('SolutionBoardController@show', ['id' => $solution->id]) }}">{{ $solution->public_name }}</a>
@@ -68,6 +67,7 @@
                         </div>
                     </div>
                 </div>
+                <!--新規ユーザー登録ボタン-->
                 <div class="content px-2 py-2 mb-5">
                     <div class="text-center">
                         <a href="{{ route('register') }}" class="btn btn-success">新規登録はこちらから</a>

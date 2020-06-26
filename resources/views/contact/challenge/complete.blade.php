@@ -1,5 +1,4 @@
 <!-- お悩み企業お問い合わせ完了画面 -->
-
 @extends('layouts.common')
 @section('title', 'お問い合わせ完了')
 @section('content')

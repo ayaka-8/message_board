@@ -21,9 +21,8 @@ class ChallengeProfileController extends Controller
     }
     /**
      *プロフィール登録
-     * マイページへ
     */
-    
+    //プロフィールの登録->マイページへ
     public function create(Request $request)
     {
         //validation
@@ -31,7 +30,6 @@ class ChallengeProfileController extends Controller
         $challenge_profile = new ChallengeProfile;
         $form = $request->all();
         //画像を保存
-        //TODO: 複数保存設定
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/challenge/image');
         } else {
@@ -41,7 +39,6 @@ class ChallengeProfileController extends Controller
         unset($form['_token']);
         // imageを削除
         unset($form['image']);
-        
         //ログインユーザーのidを取得
         $challenge_profile->user_id = Auth::id();
         //データベース に保存
@@ -52,28 +49,11 @@ class ChallengeProfileController extends Controller
     }
     
     /**
-     * マイページでユーザー情報とプロフィール情報を表示
-    */
-    public function show() 
-    {
-        //usersテーブルからユーザー情報を取得
-        $user = Auth::user();
-        //プロフィール情報がある場合ユーザーのプロフィール情報を取得
-        if (ChallengeProfile::where('user_id', $user->id)) {
-            $my_profiles = ChallengeProfile::where('user_id', $user->id)->get();
-        } 
-        
-        return view('profile.challenge.mypage', [
-            'my_profiles' => $my_profiles,
-            'user' => $user
-        ]);
-    }
-    
-    /**
     *プロフィールの編集
     */
     public function edit()
     {
+        //プロフィールの取得
         $my_profile = ChallengeProfile::where('user_id', Auth::id())->first();
         return view('profile.challenge.edit', ['my_profile' => $my_profile]);
     }
@@ -90,8 +70,12 @@ class ChallengeProfileController extends Controller
         $this->validate($request, ChallengeProfile::$rules);
         //プロフィールの取得
         $my_profile = ChallengeProfile::where('user_id', Auth::id())->first();
+        //編集内容の取得
         $form = $request->all();
-        //TODO: 画像の保存
+        //画像の保存
+        if (isset($form['image'])) {
+            $path = $request->file('image')->store('public/challenge/image');
+        } 
         
         unset($form['_token']);
         // 該当するデータを上書きして保存する

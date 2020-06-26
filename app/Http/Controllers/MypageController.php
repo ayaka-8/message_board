@@ -12,7 +12,7 @@ use App\User;
 class MypageController extends Controller
 {
     /**
-     * マイページでユーザー情報とプロフィールと情報の表示
+     * マイページでユーザー情報とプロフィール情報の表示
      */
     public function show() 
     {

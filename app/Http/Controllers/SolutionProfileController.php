@@ -21,9 +21,8 @@ class SolutionProfileController extends Controller
     }
     /**
      *プロフィール登録
-     * マイページへ
     */
-    
+    //プロフィールの登録->マイページへ
     public function create(Request $request)
     {
         //Validation
@@ -31,18 +30,15 @@ class SolutionProfileController extends Controller
         $solution_profile = new SolutionProfile;
         $form = $request->all();
         //画像を保存
-        //TODO: 複数保存設定
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/solution/image');
         } else {
             $solution_profile->solution_image = null;
         }
-        
         // _tokenを削除
         unset($form['_token']);
         // imageを削除
         unset($form['image']);
-        
         //ログインユーザーのidを取得
         $solution_profile->user_id = Auth::id();
         //データベースに保存
@@ -53,29 +49,11 @@ class SolutionProfileController extends Controller
     }
     
     /**
-     * マイページでユーザー情報とプロフィール情報を表示
-    */
-    public function show() 
-    {
-        //usersテーブルからユーザー情報を取得
-        $user = Auth::user();
-        //プロフィール情報がある場合ユーザーのプロフィール情報を取得
-        if (SolutionProfile::where('user_id', $user->id)) {
-            $my_profiles = SolutionProfile::where('user_id', $user->id)->get();
-        } 
-        
-        return view('profile.solution.mypage', [
-            'my_profiles' => $my_profiles,
-            'user' => $user
-        ]);
-    }
-    
-    /**
     *プロフィールの編集
     */ 
     public function edit()
     {
-        
+        //プロフィールの取得
         $my_profile = SolutionProfile::where('user_id', Auth::id())->first();
         return view('profile.solution.edit', ['my_profile' => $my_profile]);
     }
@@ -93,7 +71,10 @@ class SolutionProfileController extends Controller
         //プロフィールの取得
         $my_profile = SolutionProfile::where('user_id', Auth::id())->first();
         $form = $request->all();
-        //TODO: 画像の保存
+        //画像の保存
+        if (isset($form['image'])) {
+            $path = $request->file('image')->store('public/challenge/image');
+        }
         
         unset($form['_token']);
         // 該当するデータを上書きして保存する

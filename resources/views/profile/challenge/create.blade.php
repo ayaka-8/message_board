@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9 mx-auto">
-                <h2>プロフィール登録（海外企業向け）</h2>
+                <h2>プロフィール登録（海外企業・自治体向け）</h2>
                 <form action="{{ action('ChallengeProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">お悩みに関するキーワード<br>（複数ある場合は半角カンマ「,」で区切ってください）</label>
+                        <label class="col-md-3">お悩みに関するキーワード</label>
                         <div class="col-md-9">
                             <textarea class="form-control" name="challenge_keyword" row="3">{{ old('challenge_keyword') }}</textarea>
                             @if ($errors->has('challenge_keyword'))

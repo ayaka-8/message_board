@@ -181,7 +181,11 @@
                         <input type="hidden" name="id" value="{{ $my_profile->id }}">
                         <input type="hidden" name="user_id" value="{{ $my_profile->user_id }}">
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-primary" value="更新">
+                        <div class="form-group row mb-0">
+                            <div class="text-center col-md-6 offset-md-4">
+                                <input type="submit" class="btn btn-primary" value="更新">
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

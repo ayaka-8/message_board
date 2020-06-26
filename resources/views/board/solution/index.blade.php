@@ -24,6 +24,7 @@
                 <div class="board-index col-md-8 mx-auto">
                     <div class="content px-2 py-2">
                         <h4>ソリューション企業一覧</h4>
+                        <!--画像が登録されていない場合はno-image画像を挿入-->
                         @if(count($solution_boards) > 0)
                         @foreach($solution_boards as $board)
                         <div class="media">

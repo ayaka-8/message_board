@@ -8,6 +8,9 @@ class ChallengeContact extends Model
 {
     protected $guarded =array('id');
     
+    /**
+     * お問合わせのバリデーション
+     */
     public static $rules = array(
         'name' => 'required',
         'email' => 'required|email',
@@ -15,6 +18,9 @@ class ChallengeContact extends Model
         'subject.*' =>'in:現在の状況や課題の内容について,その他',
         'content' => 'required'
         );
+    /**
+     * セレクトボックスに表示するお問合わせ項目
+     */
     public static $subjects =[
         '現在の状況や課題の内容について',
         'その他'

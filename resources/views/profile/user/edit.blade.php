@@ -14,8 +14,8 @@
                         </div>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" >ユーザー名</label>
-                        <div class="col-md-10">
+                        <label class="col-md-3" >ユーザー名</label>
+                        <div class="col-md-9">
                             <input type="text" class="form-control" name="name" value="{{ $user->name }}">
                             @if ($errors->has('name'))
                             <div class="text-danger">
@@ -25,8 +25,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">メールアドレス</label></label>
-                        <div class="col-md-10">
+                        <label class="col-md-3">メールアドレス</label></label>
+                        <div class="col-md-9">
                             <input type="text" class="form-control" name="email" value="{{ $user->email }}">
                             @if ($errors->has('email'))
                             <div class="text-danger">
@@ -37,7 +37,11 @@
                     </div>
                     <div class="col-md-10">
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-primary" value="更新">
+                        <div class="form-group row mb-0">
+                            <div class="text-center col-md-6 offset-md-4">
+                                <input type="submit" class="btn btn-primary" value="更新">
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

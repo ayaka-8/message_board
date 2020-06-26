@@ -26,6 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+    //ログイン->マイページへ
     protected function authenticated() {
         
         return  redirect('mypage')->with('status', 'ログインしました');

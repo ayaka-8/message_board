@@ -8,6 +8,9 @@ use App\User;
 
 class ChallengeUserController extends Controller
 {
+    /**
+     * マイページ内ユーザー情報の編集、更新
+     */
     //ユーザー情報の編集
     public function edit()
     {
@@ -18,13 +21,11 @@ class ChallengeUserController extends Controller
     //ユーザー情報の更新->マイページ
     public function update(Request $request)
     {
-        
         $user = User::find(Auth::id());
         $form = $request->all();
         unset($form['_token']);
         $user->fill($form)->save();
         
-        //マイページへ
         return redirect()->route('mypage')->with('status', 'ユーザー情報を更新しました');
     }
 }

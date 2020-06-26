@@ -39,6 +39,7 @@ class HomeController extends Controller
         $challenges = ChallengeProfile::all()
                         ->sortByDesc('updated_at')
                         ->take(3);
+        
         return view('home', ['solutions' => $solutions, 'challenges' => $challenges]);
         
     }

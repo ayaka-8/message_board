@@ -24,7 +24,7 @@
                 <div class="card my-3">
                     <div class="profile-group col-md-10 mx-auto my-3">
                        <h4>プロフィール登録内容</h4>
-                       <!--お悩みプロフィール情報がある場合 -->
+                       <!--お悩みプロフィールがある場合 -->
                        @if ($challenge_profiles) 
                        @foreach($challenge_profiles as $my_profile)
                        <div class="challenge-profile card my-2">
@@ -130,6 +130,20 @@
                             </div>
                         </div>
                         @endif
+                        <!--プロフィールの追加-->
+                        <div class="card text-center my-3">
+                            <div class="card-body">
+                                <p class="card-text">プロフィールを追加したい場合はこちらから作成できます。</p>
+                                <!--ソリューション企業向け追加登録ボタン-->
+                                @if (count($solution_profiles) > 0)
+                                <a href="{{ url('/profile/solution/create') }}" class="btn btn-success">プロフィールの追加登録</a>
+                                @endif
+                                <!--お悩み企業向け追加登録ボタン-->
+                                @if (count($challenge_profiles) > 0)
+                                <a href="{{ url('/profile/challenge/create') }}" class="btn btn-success">プロフィールの追加登録</a>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div> 

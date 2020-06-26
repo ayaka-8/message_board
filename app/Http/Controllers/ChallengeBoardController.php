@@ -24,6 +24,7 @@ class ChallengeBoardController extends Controller
           //それ以外は全てのプロフィールを取得する
             $challenge_boards = ChallengeProfile::orderBy('public_name', 'desc')->paginate(5);
         }
+        
         return view('board.challenge.index', ['challenge_boards' => $challenge_boards, 'search_keyword' => $search_keyword]);
     }
     
@@ -34,12 +35,12 @@ class ChallengeBoardController extends Controller
     {
         $challenge_board = ChallengeProfile::find($request->id);
         //お悩みが複数ある場合
-        //リクエストされたもの以外のプロフィール情報を取得する
+        //リクエストされたもの以外のプロフィール情報を取得し、show画面へ渡す
         $other_boards = ChallengeProfile::where([
             ['id', '!=', $challenge_board->id],
             ['user_id', $challenge_board->user_id]
             ])->get();
-            
+        
         return view('board.challenge.show', ['board' => $challenge_board, 'other_boards' => $other_boards]);
     }
     

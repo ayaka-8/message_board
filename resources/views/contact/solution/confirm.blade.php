@@ -1,5 +1,4 @@
 <!-- ソリューション企業お問い合わせ確認画面 -->
-
 @extends('layouts.common')
 @section('title', 'お問い合わせ内容確認')
 @section('content')
@@ -19,6 +18,7 @@
                             <tr><td>メールアドレス</td><td>{{ $contact->email }}</td></tr>
                             <tr><td>お問い合わせ内容</td><td>{{ $contact->content }}</td></tr>
                         </table>
+                        <!--隠しフィールド-->
                         <form action="{{ action('SolutionContactController@complete') }}" method="post">
                             <input type="hidden" name="recipient_id" class="form-control" id="InputRecipientId" value="{{ $contact->recipient_id }}">
                             <input type="hidden" name="recipient_name" class="form-control" id="InputRecipientName" value="{{ $contact->recipient_name }}">

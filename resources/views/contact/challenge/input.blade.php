@@ -1,5 +1,4 @@
 <!-- お悩み企業お問合わせ画面 -->
-
 @extends('layouts.common')
 @section('title', 'お問い合わせページ')
 @section('content')

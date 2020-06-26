@@ -8,6 +8,9 @@ class SolutionProfile extends Model
 {
     protected $guarded = array('id');
     
+    /**
+     * ソリューションプロフィールのバリデーション
+     */
     public static $rules = array(
         'public_name' => 'required',
         'area' => 'required',
