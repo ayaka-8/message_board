@@ -32,12 +32,12 @@ class HomeController extends Controller
     {
         //新着ソリューション情報の取得
         $solutions = SolutionProfile::all()
-                        ->sortByDesc('updated_at')
+                        ->sortByDesc('created_at')
                         ->take(3);
                         
         //新着お悩み情報の取得
         $challenges = ChallengeProfile::all()
-                        ->sortByDesc('updated_at')
+                        ->sortByDesc('created_at')
                         ->take(3);
         
         return view('home', ['solutions' => $solutions, 'challenges' => $challenges]);

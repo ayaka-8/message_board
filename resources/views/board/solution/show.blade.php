@@ -19,14 +19,14 @@
                             @endempty
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">ソリューションキーワード</h5>
-                                <p>{{ $board->solution_keyword }}</p>
+                                <p>{!! nl2br($board->solution_keyword) !!}</p>
                             </div>
                         </div>
                         <div class="solution-others col-md-10 mx-auto px-2">
                             <h5 class="mt-2">ソリューション内容</h5>
-                            <p>{{ $board->solution_detail }}</p>
+                            <p>{!! nl2br($board->solution_detail) !!}</p>
                             <h5 class="mt-0">ソリューション実績</h5>
-                            <p>{{ $board->solution_performance }}</p>
+                            <p>{!! nl2br($board->solution_performance) !!}</p>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="message col-md-10 mx-auto px-2">
                             <h5 class="mt-2">メッセージ</h5>
-                            <p>{{ $board->message }}</p>
+                            <p>{!! nl2br($board->message) !!}</p>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                             @endempty
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">担当者からのメッセージ</h5>
-                                <p>{{ $board->contact_message }}</p>
+                                <p>{!! nl2br($board->contact_message) !!}</p>
                             </div>
                         </div>
                         <div class="text-center my-2 px-2">
@@ -105,7 +105,7 @@
                             @endempty
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-2 ml-2">ソリューションキーワード</h5>
-                                <p>{{ $board->solution_keyword }}</p>
+                                <p>{!! nl2br($board->solution_keyword) !!}</p>
                             </div>
                         </div>
                         <div class="text-right my-2 px-2">

@@ -19,14 +19,14 @@
                             @endempty
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">お悩みキーワード</h5>
-                                <p>{{ $board->challenge_keyword }}</p>
+                                <p>{!! nl2br($board->challenge_keyword) !!}</p>
                             </div>
                         </div>
                         <div class="challenge-others col-md-10 mx-auto px-2">
                             <h5 class="mt-2">現在の状況や課題</h5>
-                            <p>{{ $board->challenge_detail }}</p>
+                            <p>{!! nl2br($board->challenge_detail) !!}</p>
                             <h5 class="mt-0">相談者が考える解決策</h5>
-                            <p>{{ $board->challenge_method }}</p>
+                            <p>{!! nl2br($board->challenge_method) !!}</p>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="message col-md-10 mx-auto px-2">
                             <h5 class="mt-2">メッセージ</h5>
-                            <p>{{ $board->message }}</p>
+                            <p>{!! nl2br($board->message) !!}</p>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                             @endempty
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">担当者からのメッセージ</h5>
-                                <p>{{ $board->contact_message }}</p>
+                                <p>{!! nl2br($board->contact_message) !!}</p>
                             </div>
                         </div>
                         <div class="text-center my-2 px-2">
@@ -105,7 +105,7 @@
                             @endempty
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">お悩みキーワード</h5>
-                                <p>{{ $board->challenge_keyword }}</p>
+                                <p>{!! nl2br($board->challenge_keyword) !!}</p>
                             </div>
                         </div>
                         <div class="text-right my-2 px-2">

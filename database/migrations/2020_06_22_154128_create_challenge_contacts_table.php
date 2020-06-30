@@ -21,7 +21,7 @@ class CreateChallengeContactsTable extends Migration
             $table->string('email');
             $table->string('subject');
             $table->string('content');
-            $table->integer('recipient_id');
+            $table->unsignedBigInteger('recipient_id');
             $table->string('recipient_name');
             $table->timestamps();
         });
@@ -30,6 +30,13 @@ class CreateChallengeContactsTable extends Migration
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
+            ->onDelete('cascade');
+        });
+        //recipient_id外部キー制約
+        Schema::table('challenge_contacts', function ($table) {
+            $table->foreign('recipient_id')
+            ->references('id')
+            ->on('challenge_profiles')
             ->onDelete('cascade');
         });
     }

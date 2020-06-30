@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-9 mx-auto">
                 <h2>プロフィール編集</h2>
-                <form action="{{ action('SolutionProfileController@update') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('SolutionProfileController@update', ['id' => $my_profile->id]) }}" method="post" enctype="multipart/form-data">
                     <!-- エラーメッセージ の表示 -->
                     @if (count($errors) > 0)
                         <div class="alert alert-danger" role="alert">
@@ -29,6 +29,11 @@
                         <label class="col-md-3">会社ロゴ</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="logo_image">
+                            @if ($errors->has('logo_image'))
+                            <div class="text-danger">
+                                {{$errors->first('logo_image')}}
+                            </div>
+                            @endif
                             <div class="form-text text-info">
                                 設定中: {{ old('logo_image', $my_profile->logo_image) }}
                             </div>
@@ -120,6 +125,11 @@
                         <label class="col-md-3">ソリューションに関する画像</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="solution_image">
+                            @if ($errors->has('solution_image'))
+                            <div class="text-danger">
+                                {{$errors->first('solution_image')}}
+                            </div>
+                            @endif
                             <div class="form-text text-info">
                                 設定中: {{ old('solution_image', $my_profile->solution_image) }}
                             </div>
@@ -156,6 +166,11 @@
                         <label class="col-md-3">担当者に関する画像</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="contact_image">
+                            @if ($errors->has('contact_image'))
+                            <div class="text-danger">
+                                {{$errors->first('contact_image')}}
+                            </div>
+                            @endif
                             <div class="form-text text-info">
                                 設定中: {{ old('contact_image', $my_profile->contact_image) }}
                             </div>

@@ -1,6 +1,6 @@
 <!--ソリューション企業一覧 -->
 @extends('layouts.common')
-@section('title', 'ソリューション企業一覧')
+@section('title', 'ソリューション一覧')
 @section('content')
     <div class="container">
         <div class="row">
@@ -23,7 +23,7 @@
                 <!-- 一覧表示 -->
                 <div class="board-index col-md-8 mx-auto">
                     <div class="content px-2 py-2">
-                        <h4>ソリューション企業一覧</h4>
+                        <h4>ソリューション一覧</h4>
                         <!--画像が登録されていない場合はno-image画像を挿入-->
                         @if(count($solution_boards) > 0)
                         @foreach($solution_boards as $board)
@@ -36,7 +36,7 @@
                             @endempty
                             <div class="media-body px-2">
                                 <h5 class="mt-0 ">ソリューションキーワード</h5>
-                                <p>{{ $board->solution_keyword }}</p>
+                                <p>{!! nl2br($board->solution_keyword) !!}</p>
                                 <h5 class="mt-0 ">ソリューション会社名</h5>
                                 <p>{{ $board->public_name }}</p>
                                 <div class="text-right">

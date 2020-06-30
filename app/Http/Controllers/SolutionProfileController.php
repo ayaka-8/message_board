@@ -30,10 +30,26 @@ class SolutionProfileController extends Controller
         $solution_profile = new SolutionProfile;
         $form = $request->all();
         //画像を保存
-        if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/solution/image');
+        //ロゴ画像
+        if ($request->file('file')->inValid([])) {
+            $path = $request->file('logo_image')->store('public/solution/image');
+            $solution_profile->logo_image = basename($path);
+        } else {
+            $solution_profile->logo_image = null;
+        }
+        //ソリューションに関する画像
+        if ($request->file('file')->inValid([])) {
+            $path = $request->file('solution_image')->store('public/solution/image');
+            $solution_profile->solution_image = basename($path);
         } else {
             $solution_profile->solution_image = null;
+        }
+        //担当者に関する画像
+        if ($request->file('file')->inValid([])) {
+            $path = $request->file('contact_image')->store('public/solution/image');
+            $solution_profile->contact_image = basename($path);
+        } else {
+            $solution_profile->contact_image = null;
         }
         // _tokenを削除
         unset($form['_token']);
@@ -51,10 +67,10 @@ class SolutionProfileController extends Controller
     /**
     *プロフィールの編集
     */ 
-    public function edit()
+    public function edit(Request $request)
     {
         //プロフィールの取得
-        $my_profile = SolutionProfile::where('user_id', Auth::id())->first();
+        $my_profile = SolutionProfile::find($request->id);
         return view('profile.solution.edit', ['my_profile' => $my_profile]);
     }
     
@@ -69,13 +85,36 @@ class SolutionProfileController extends Controller
         //validation
         $this->validate($request, SolutionProfile::$rules);
         //プロフィールの取得
-        $my_profile = SolutionProfile::where('user_id', Auth::id())->first();
+        $my_profile = SolutionProfile::find($request->id);
         $form = $request->all();
         //画像の保存
-        if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/challenge/image');
+        //ロゴ画像の更新
+        if (isset($form['logo_image'])) {
+            $path = $request->file('logo_image')->store('public/solution/image');
+            $my_profile->logo_image = basename($path);
+            unset($my_profile->logo_image);
+        } elseif(isset($request->remove)) {
+            $my_profile->logo_image = null;
+            unset($form['remove']);
         }
-        
+        //ソリューションに関する画像の更新
+        if (isset($form['solution_image'])) {
+            $path = $request->file('solution_image')->store('public/solution/image');
+            $my_profile->solution_image = basename($path);
+            unset($my_profile->solution_image);
+        } elseif(isset($request->remove)) {
+            $my_profile->solution_image = null;
+            unset($form['remove']);
+        }
+        //担当者に関する画像の更新
+        if (isset($form['contact_image'])) {
+            $path = $request->file('contact_image')->store('public/solution/image');
+            $my_profile->contact_image = basename($path);
+            unset($my_profile->contact_image);
+        } elseif(isset($request->remove)) {
+            $my_profile->contact_image = null;
+            unset($form['remove']);
+        }
         unset($form['_token']);
         // 該当するデータを上書きして保存する
         $my_profile->fill($form)->save();

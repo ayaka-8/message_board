@@ -16,7 +16,7 @@
                     <div class="form-group row">
                         <label class="col-md-3" >ユーザー名</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="name" value="{{ $user->name }}">
+                            <input type="text" class="form-control" name="name" value="{{ old('name', $user->name) }}">
                             @if ($errors->has('name'))
                             <div class="text-danger">
                                 {{$errors->first('name')}}
@@ -27,7 +27,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">メールアドレス</label></label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="email" value="{{ $user->email }}">
+                            <input type="text" class="form-control" name="email" value="{{ old('email', $user->email) }}">
                             @if ($errors->has('email'))
                             <div class="text-danger">
                                 {{$errors->first('email')}}

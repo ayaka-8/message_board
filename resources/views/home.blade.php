@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <a href="{{ action('SolutionBoardController@index') }}" class="btn btn-primary">ソリューション企業一覧ページへ</a>
+                                <a href="{{ action('SolutionBoardController@index') }}" class="btn btn-primary">ソリューション一覧ページへ</a>
                             </div>
                             <div class="challenge-info card my-3">
                                 <div class="card-body">

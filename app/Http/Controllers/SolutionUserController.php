@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\User;
 
@@ -24,6 +25,13 @@ class SolutionUserController extends Controller
     {
         
         $user = User::find(Auth::id());
+        //validation
+        $request->validate([
+            'name' => ['required','string','max:255'],
+            'email' => ['required','string','email','max:255',
+                Rule::unique('users')->ignore($user->id)
+                ],
+            ]);
         $form = $request->all();
         unset($form['_token']);
         $user->fill($form)->save();

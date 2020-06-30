@@ -15,9 +15,9 @@
                         </div>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-3" >会社名 (公開名)</label>
+                        <label class="col-md-3">会社名 (公開名)</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="public_name" value="{{ old('public_name') }}">
+                            <input type="text" class="form-control" name="public_name" value="{{ old('public_name') }}" placeholder="例：○△株式会社">
                             @if ($errors->has('public_name'))
                             <div class="text-danger">
                                 {{$errors->first('public_name')}}
@@ -29,12 +29,18 @@
                         <label class="col-md-3">会社ロゴ</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="logo_image">
+                             <small class="input_condidion">*jpg,png形式のみ</small>
+                            @if ($errors->has('logo_image'))
+                            <div class="text-danger">
+                                {{$errors->first('logo_image')}}
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3">地域名</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="area" value="{{ old('area') }}">
+                            <input type="text" class="form-control" name="area" value="{{ old('area') }}" placeholder="例: 関東">
                             @if ($errors->has('area'))
                             <div class="text-danger">
                                 {{$errors->first('area')}}
@@ -45,7 +51,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">住所</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" name="address" rows="3">{{ old('address') }}</textarea>
+                            <textarea class="form-control" name="address" rows="3" placeholder="例: ○○県□□市...">{{ old('address') }}</textarea>
                             @if ($errors->has('address'))
                             <div class="text-danger">
                                 {{$errors->first('address')}}
@@ -54,9 +60,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">電話番号</label>
+                        <label class="col-md-3">電話番号<br>(数字のみ半角で入力してください)</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}">
+                            <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}" placeholder="例: 0000000000">
                             @if ($errors->has('phone_number'))
                             <div class="text-danger">
                                 {{$errors->first('phone_number')}}
@@ -67,7 +73,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">公式サイト</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="url" value="{{ old('url') }}">
+                            <input type="text" class="form-control" name="url" value="{{ old('url') }}" placeholder="例: https://...">
                             @if ($errors->has('url'))
                             <div class="text-danger">
                                 {{$errors->first('url')}}
@@ -78,7 +84,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">ソリューションキーワード<br>（主な事業分野）</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" name="solution_keyword" row="3">{{ old('solution_keyword') }}</textarea>
+                            <textarea class="form-control" name="solution_keyword" row="3" placeholder="例: 精密加工, 医療機器...">{{ old('solution_keyword') }}</textarea>
                             @if ($errors->has('solution_keyword'))
                             <div class="text-danger">
                                 {{$errors->first('solution_keyword')}}
@@ -89,7 +95,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">ソリューション内容<br>（事業詳細）</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" name="solution_detail" row="10">{{ old('solution_detail') }}</textarea>
+                            <textarea class="form-control" name="solution_detail" row="10" placeholder="例: 医療機器メーカーから受注し、精密機器を製造、加工しています。">{{ old('solution_detail') }}</textarea>
                             @if ($errors->has('solution_detail'))
                             <div class="text-danger">
                                 {{$errors->first('solution_detail')}}
@@ -100,7 +106,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">ソリューション実績<br>（事業実績）</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" name="solution_performance" row="10">{{ old('solution_performance') }}</textarea>
+                            <textarea class="form-control" name="solution_performance" row="10" placeholder="例: タイの医療メーカーからの受注を開始しました。">{{ old('solution_performance') }}</textarea>
                             @if ($errors->has('solution_performance'))
                             <div class="text-danger">
                                 {{$errors->first('solution_performance')}}
@@ -112,12 +118,17 @@
                         <label class="col-md-3">ソリューションに関する画像</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="solution_image">
+                            @if ($errors->has('solution_image'))
+                            <div class="text-danger">
+                                {{$errors->first('solution_image')}}
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-3">メッセージ</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" name="message" row="10">{{ old('message') }}</textarea>
+                            <textarea class="form-control" name="message" row="10" placeholder="例: 今後の展望や計画など">{{ old('message') }}</textarea>
                             @if ($errors->has('message'))
                             <div class="text-danger">
                                 {{$errors->first('message')}}
@@ -140,6 +151,11 @@
                         <label class="col-md-3">担当者に関する画像</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="contact_image">
+                            @if ($errors->has('contact_image'))
+                            <div class="text-danger">
+                                {{$errors->first('contact_image')}}
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group row">

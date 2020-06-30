@@ -35,7 +35,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-                            <li><a class="nav-link" href="/solution/index">ソリューション企業一覧</a></li>
+                            <li><a class="nav-link" href="/solution/index">ソリューション一覧</a></li>
                             <li><a class="nav-link" href="/challenge/index">お悩み一覧</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">新規登録</a></li>
                         <!-- Authentication Links -->

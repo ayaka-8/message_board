@@ -22,6 +22,13 @@ class ChallengeUserController extends Controller
     public function update(Request $request)
     {
         $user = User::find(Auth::id());
+        //validation
+        $request->validate([
+            'name' => ['required','string','max:255'],
+            'email' => ['required','string','email','max:255',
+                Rule::unique('users')->ignore($user->id)
+                ],
+            ]);
         $form = $request->all();
         unset($form['_token']);
         $user->fill($form)->save();

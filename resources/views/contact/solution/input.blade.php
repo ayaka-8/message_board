@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-9 mx-auto">
                 <div class="card my-3">
                     <div class="card-header">
                         <h4>お問い合わせ</h4>
@@ -25,6 +25,8 @@
                                     <input class="form-control" type="hidden" name="recipient_id" id="InputRecipientId" value="{{ old('recipient_id', $recipient_id) }}">
                                     <input class="form-control" name="recipient_name" type="text" id="InputRecipientName" value="{{ old('recipient_name', $recipient_name) }}" readonly> 
                                 </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="control-label col-md-3 mx-auto">お問い合わせ項目</label>
                                 <div class="col-md-9">
                                     <select class="form-control" name="subject">

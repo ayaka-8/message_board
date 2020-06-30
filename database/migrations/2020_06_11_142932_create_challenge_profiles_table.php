@@ -21,7 +21,7 @@ class CreateChallengeProfilesTable extends Migration
             $table->string('area');
             $table->string('address');
             $table->string('phone_number');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('challenge_keyword');
             $table->string('challenge_detail');
             $table->string('challenge_image')->nullable();

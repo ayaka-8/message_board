@@ -30,7 +30,6 @@ class Contact extends Mailable
      */
     public function build()
     {
-        //TODO: 日本語文字化け
         return $this->text('emails.notification_plain')
                 ->to($this->contact['to'], $this->contact['to_name'])
                 ->from($this->contact['from'], $this->contact['from_name'])

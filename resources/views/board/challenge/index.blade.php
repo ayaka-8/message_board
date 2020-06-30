@@ -36,7 +36,7 @@
                             @endempty
                             <div class="media-body px-2">
                                 <h5 class="mt-0 ">お悩みキーワード</h5>
-                                <p>{{ $board->challenge_keyword }}</p>
+                                <p>{!! nl2br($board->challenge_keyword) !!}</p>
                                 <h5 class="mt-0 ">会社（所属先）名</h5>
                                 <p>{{ $board->public_name }}</p>
                                 <div class="text-right">

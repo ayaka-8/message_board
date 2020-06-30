@@ -21,7 +21,7 @@ class CreateSolutionProfilesTable extends Migration
             $table->string('area');
             $table->string('address');
             $table->string('phone_number');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('solution_keyword');
             $table->string('solution_detail');
             $table->string('solution_performance');
