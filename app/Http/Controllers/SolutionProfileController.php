@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\SolutionProfile;
 use App\User;
+
 
 
 class SolutionProfileController extends Controller
@@ -32,22 +34,28 @@ class SolutionProfileController extends Controller
         //画像を保存
         //ロゴ画像
         if ($request->file('file')->inValid([])) {
-            $path = $request->file('logo_image')->store('public/solution/image');
-            $solution_profile->logo_image = basename($path);
+            // $path = $request->file('logo_image')->store('public/solution/image');
+            // $solution_profile->logo_image = basename($path);
+            $path = Storage::disk('s3')->putFile('logo_image', $request->file('logo_image'), $request->user()->id);
+            $solution_profile->logo_image = Storage::disk('s3')->url($path);
         } else {
             $solution_profile->logo_image = null;
         }
         //ソリューションに関する画像
         if ($request->file('file')->inValid([])) {
-            $path = $request->file('solution_image')->store('public/solution/image');
-            $solution_profile->solution_image = basename($path);
+            // $path = $request->file('solution_image')->store('public/solution/image');
+            // $solution_profile->solution_image = basename($path);
+            $path = Storage::disk('s3')->putFile('solution_image', $request->file('solution_image'), $request->user()->id);
+            $solution_profile->solution_image = Storage::disk('s3')->url($path);
         } else {
             $solution_profile->solution_image = null;
         }
         //担当者に関する画像
         if ($request->file('file')->inValid([])) {
-            $path = $request->file('contact_image')->store('public/solution/image');
-            $solution_profile->contact_image = basename($path);
+            // $path = $request->file('contact_image')->store('public/solution/image');
+            // $solution_profile->contact_image = basename($path);
+            $path = Storage::disk('s3')->putFile('contact_image', $request->file('contact_image'), $request->user()->id);
+            $solution_profile->contact_image = Storage::disk('s3')->url($path);
         } else {
             $solution_profile->contact_image = null;
         }
@@ -90,8 +98,10 @@ class SolutionProfileController extends Controller
         //画像の保存
         //ロゴ画像の更新
         if (isset($form['logo_image'])) {
-            $path = $request->file('logo_image')->store('public/solution/image');
-            $my_profile->logo_image = basename($path);
+            // $path = $request->file('logo_image')->store('public/solution/image');
+            // $my_profile->logo_image = basename($path);
+            $path = Storage::disk('s3')->putFile('logo_image', $request->file('logo_image'), $request->user()->id);
+            $solution_profile->logo_image = Storage::disk('s3')->url($path);
             unset($my_profile->logo_image);
         } elseif(isset($request->remove)) {
             $my_profile->logo_image = null;
@@ -99,8 +109,10 @@ class SolutionProfileController extends Controller
         }
         //ソリューションに関する画像の更新
         if (isset($form['solution_image'])) {
-            $path = $request->file('solution_image')->store('public/solution/image');
-            $my_profile->solution_image = basename($path);
+            // $path = $request->file('solution_image')->store('public/solution/image');
+            // $my_profile->solution_image = basename($path);
+            $path = Storage::disk('s3')->putFile('solution_image', $request->file('solution_image'), $request->user()->id);
+            $solution_profile->solution_image = Storage::disk('s3')->url($path);
             unset($my_profile->solution_image);
         } elseif(isset($request->remove)) {
             $my_profile->solution_image = null;
@@ -108,8 +120,10 @@ class SolutionProfileController extends Controller
         }
         //担当者に関する画像の更新
         if (isset($form['contact_image'])) {
-            $path = $request->file('contact_image')->store('public/solution/image');
-            $my_profile->contact_image = basename($path);
+            // $path = $request->file('contact_image')->store('public/solution/image');
+            // $my_profile->contact_image = basename($path);
+            $path = Storage::disk('s3')->putFile('contact_image', $request->file('contact_image'), $request->user()->id);
+            $solution_profile->contact_image = Storage::disk('s3')->url($path);
             unset($my_profile->contact_image);
         } elseif(isset($request->remove)) {
             $my_profile->contact_image = null;

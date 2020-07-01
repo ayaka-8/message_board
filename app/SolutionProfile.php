@@ -13,7 +13,7 @@ class SolutionProfile extends Model
      */
     public static $rules = array(
         'public_name' => 'required',
-        'logo_image' => 'nullable|file|image|mimes:png,jpg|dimensions:max_width=400,max_height=400',
+        'logo_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=400,max_height=400',
         'area' => 'required',
         'address' => 'required',
         'phone_number' => 'required|numeric|digits_between:8,11',
@@ -21,9 +21,9 @@ class SolutionProfile extends Model
         'solution_keyword' => 'required',
         'solution_detail' => 'required',
         'solution_performance' => 'required',
-        'solution_image' => 'nullable|file|image|mimes:png,jpg|dimensions:max_width=400,max_height=400',
+        'solution_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=400,max_height=400',
         'message' => 'required',
-        'contact_image' => 'nullable|file|image|mimes:png,jpg|dimensions:max_width=400,max_height=400',
+        'contact_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=400,max_height=400',
         'contact_message' => 'required',
         'contact_email' => 'required|email',
         );

@@ -77,7 +77,7 @@
                                 <tr><td>会社名</td><td>{{ $my_profile->public_name }}</td></tr>
                                 <tr><td>会社ロゴ</td>
                                 @isset($my_profile->logo_image)
-                                <td>{{ $my_profile->logo_image }}</td>
+                                <td><img src="{{ $my_profile->logo_image }}"></td>
                                 @endisset
                                 @empty($my_profile->logo_image)
                                 <td><img src="/storage/noimage.png"></td>
@@ -92,7 +92,7 @@
                                 <tr><td>ソリューションの実績</td><td>{!! nl2br($my_profile->solution_performance) !!}</td></tr>
                                 <tr><td>ソリューションに関する画像</td>
                                 @isset($my_profile->solution_image)
-                                <td>{{ $my_profile->solution_image }}</td>
+                                <td><img src="{{ $my_profile->solution_image }}"></td>
                                 @endisset
                                 @empty($my_profile->solution_image)
                                 <td><img src="/storage/noimage.png"></td>
@@ -101,7 +101,7 @@
                                 <tr><td>担当者からのメッセージ</td><td>{!! nl2br($my_profile->contact_message) !!}</td></tr>
                                 <tr><td>担当者に関する画像</td>
                                 @isset($my_profile->contact_image)
-                                <td>{{ $my_profile->contact_image }}</td>
+                                <td><img src="{{ $my_profile->contact_image }}"></td>
                                 @endisset
                                 @empty($my_profile->contact_image)
                                 <td><img src="/storage/noimage.png"></td>
