@@ -10,13 +10,12 @@
                     <div class="content px-2 py-2">
                         <h4 class="mt-2 px-2">お悩み情報</h4>
                         <div class="media col-md-10 col-sm mx-auto">
-                            <!--画像が登録されていない場合はno-image画像を挿入-->
-                            @isset($challenge_board->challenge_image)
-                            <img src="{{asset('public/challenge/image/' . $board->challenge_image) }}" class="img-fluid mr-3 mx-3">
-                            @endisset
-                            @empty($board->challenge_image)
-                            <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
-                            @endempty
+                            <!--お悩みに関する画像の表示-->
+                            @if($board->challenge_image != null)
+                            <img src="{{ $board->challenge_image }}" class="img-fluid mr-3 mx-3" alt="お悩みに関する画像">
+                            @else
+                            <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
+                            @endif
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">お悩みキーワード</h5>
                                 <p>{!! nl2br($board->challenge_keyword) !!}</p>
@@ -37,13 +36,12 @@
                     <div class="content px-2 py-2">
                         <h4 class="mt-2 px-2">会社情報</h4>
                         <div class="media col-md-10 mx-auto">
-                            <!--画像が登録されていない場合はno-image画像を挿入-->
-                            @isset($board->logo_image)
-                            <img src="{{asset('public/challenge/image/' . $board->logo_image) }}" class="img-fluid mr-3 mx-3">
-                            @endisset
-                            @empty($board->logo_image)
-                            <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
-                            @endempty
+                            <!--ロゴ画像の表示-->
+                            @if($board->logo_image != null)
+                            <img src="{{ $board->logo_image }}" class="img-fluid mr-3 mx-3" alt="ロゴ画像">
+                            @else
+                            <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
+                            @endif
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">会社名</h5>
                                 <p>{{ $board->public_name }}</p>
@@ -70,13 +68,12 @@
                     <div class="content px-2 py-2">
                         <h4 class="mt-2 px-2">担当者情報</h4>
                         <div class="media col-md-10 mx-auto">
-                            <!--画像が登録されていない場合はno-image画像を挿入-->
-                            @isset($board->contact_image)
-                            <img src="{{asset('public/challenge/image/' . $board->contact_image) }}" class="img-fluid mr-3 mx-3">
-                            @endisset
-                            @empty($board->contact_image)
-                            <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
-                            @endempty
+                            <!--担当者に関する画像の表示-->
+                            @if($board->contact_image != null)
+                            <img src="{{ $board->contact_image }}" class="img-fluid mr-3 mx-3" alt="担当者に関する画像">
+                            @else
+                            <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
+                            @endif
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">担当者からのメッセージ</h5>
                                 <p>{!! nl2br($board->contact_message) !!}</p>
@@ -96,13 +93,12 @@
                 <div class="card my-3">
                     <div class="content px-2 py-2">
                         <div class="media col-md-10 col-sm mx-auto">
-                            <!--画像が登録されていない場合はno-image画像を挿入-->
-                            @isset($board->challenge_image)
-                            <img src="{{asset('public/challenge/image/' . $board->challenge_image) }}" class="img-fluid mr-3 mx-3">
-                            @endisset
-                            @empty($board->challenge_image)
-                            <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
-                            @endempty
+                            <!--お悩みに関する画像の表示-->
+                            @if($board->challenge_image != null)
+                            <img src="{{ $board->challenge_image }}" class="img-fluid mr-3 mx-3" alt="お悩みに関する画像">
+                            @else
+                            <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
+                            @endif
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">お悩みキーワード</h5>
                                 <p>{!! nl2br($board->challenge_keyword) !!}</p>

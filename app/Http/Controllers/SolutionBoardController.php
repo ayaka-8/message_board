@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\SolutionProfile;
 
@@ -24,7 +25,10 @@ class SolutionBoardController extends Controller
           //それ以外は全てのプロフィールを取得する
             $solution_boards = SolutionProfile::orderBy('public_name', 'desc')->paginate(5);
         }
-        return view('board.solution.index', ['solution_boards' => $solution_boards, 'search_keyword' => $search_keyword]);
+        //画像がない場合のデフォルト用画像をs3から取得
+        $no_image_url = Storage::disk('s3')->url('no_image/noimage.png');
+        
+        return view('board.solution.index', ['solution_boards' => $solution_boards, 'search_keyword' => $search_keyword, 'no_image' => $no_image_url]);
     }
     
     /**
@@ -39,8 +43,10 @@ class SolutionBoardController extends Controller
             ['id', '!=', $solution_board->id],
             ['user_id', $solution_board->user_id]
             ])->get();
-            
-        return view('board.solution.show', ['board' => $solution_board, 'other_boards' => $other_boards]);
+        //画像がない場合のデフォルト用画像をs3から取得
+        $no_image_url = Storage::disk('s3')->url('no_image/noimage.png');
+        
+        return view('board.solution.show', ['board' => $solution_board, 'other_boards' => $other_boards, 'no_image' => $no_image_url]);
     }
     
 }

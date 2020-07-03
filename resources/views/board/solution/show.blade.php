@@ -10,13 +10,12 @@
                     <div class="content px-2 py-2">
                         <h4 class="mt-2 px-2">ソリューション情報</h4>
                         <div class="media col-md-10 col-sm mx-auto">
-                            <!--画像が登録されていない場合はno-image画像を挿入-->
-                            @isset($solution_board->solution_image)
-                            <img src="{{asset('public/solution/image/' . $board->solution_image) }}" class="img-fluid mr-3 mx-3">
-                            @endisset
-                            @empty($board->solution_image)
-                            <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
-                            @endempty
+                            <!--ソリューションに関する画像の表示-->
+                            @if($board->solution_image != null)
+                            <img src="{{ $board->solution_image }}" class="img-fluid mr-3 mx-3" alt="ソリューションに関する画像">
+                            @else
+                            <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
+                            @endif
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">ソリューションキーワード</h5>
                                 <p>{!! nl2br($board->solution_keyword) !!}</p>
@@ -37,13 +36,12 @@
                     <div class="content px-2 py-2">
                         <h4 class="mt-2 px-2">会社情報</h4>
                         <div class="media col-md-10 mx-auto">
-                            <!--画像が登録されていない場合はno-image画像を挿入-->
-                            @isset($board->logo_image)
-                            <img src="{{asset('public/solution/image/' . $board->logo_image) }}" class="img-fluid mr-3 mx-3">
-                            @endisset
-                            @empty($board->logo_image)
-                            <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
-                            @endempty
+                            <!--ロゴ画像の表示-->
+                            @if($board->logo_image !=null)
+                            <img src="{{ $board->logo_image }}" class="img-fluid mr-3 mx-3" alt="ロゴ画像">
+                            @else
+                            <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
+                            @endif
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">会社名</h5>
                                 <p>{{ $board->public_name }}</p>
@@ -70,13 +68,12 @@
                     <div class="content px-2 py-2">
                         <h4 class="mt-2 px-2">担当者情報</h4>
                         <div class="media col-md-10 mx-auto">
-                            <!--画像が登録されていない場合はno-image画像を挿入-->
-                            @isset($board->contact_image)
-                            <img src="{{asset('public/solution/image/' . $board->contact_image) }}" class="img-fluid mr-3 mx-3">
-                            @endisset
-                            @empty($board->contact_image)
-                            <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
-                            @endempty
+                            <!--担当者に関する画像の表示-->
+                            @if($board->contact_image != null)
+                            <img src="{{ $board->contact_image }}" class="img-fluid mr-3 mx-3" alt="担当者に関する画像">
+                            @else
+                            <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
+                            @endif
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-0">担当者からのメッセージ</h5>
                                 <p>{!! nl2br($board->contact_message) !!}</p>
@@ -96,13 +93,12 @@
                 <div class="card my-3">
                     <div class="content px-2 py-2">
                         <div class="media col-md-10 col-sm mx-auto">
-                            <!--画像が登録されていない場合はno-image画像を挿入-->
-                            @isset($solution_board->solution_image)
-                            <img src="{{asset('public/solution/image/' . $board->solution_image) }}" class="img-fluid mr-3 mx-3">
-                            @endisset
-                            @empty($board->solution_image)
-                            <img src="/storage/noimage.png" class="img-fluid mr-3 mx-3">
-                            @endempty
+                            <!--ソリューションに関する画像の表示-->
+                            @if($board->solution_image != null)
+                            <img src="{{ $board->solution_image }}" class="img-fluid mr-3 mx-3" alt="ソリューションに関する画像">
+                            @else
+                            <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
+                            @endif
                             <div class="media-body col-md-8 col-sm mx-auto px-2">
                                 <h5 class="mt-2 ml-2">ソリューションキーワード</h5>
                                 <p>{!! nl2br($board->solution_keyword) !!}</p>

@@ -29,7 +29,8 @@
                         <label class="col-md-3">会社ロゴ</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="logo_image">
-                             <small class="input_condidion">*jpg,png形式のみ</small>
+                            <small class="input_condidion">*形式: jpg, jpeg, png</small>
+                            <small class="input_condidion">*最大サイズ: 250 x 250px</small>
                             @if ($errors->has('logo_image'))
                             <div class="text-danger">
                                 {{$errors->first('logo_image')}}
@@ -118,6 +119,8 @@
                         <label class="col-md-3">ソリューションに関する画像</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="solution_image">
+                            <small class="input_condidion">*形式: jpg, jpeg, png<br></small>
+                            <small class="input_condidion">*最大サイズ: 250 x 250px</small>
                             @if ($errors->has('solution_image'))
                             <div class="text-danger">
                                 {{$errors->first('solution_image')}}
@@ -151,6 +154,8 @@
                         <label class="col-md-3">担当者に関する画像</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="contact_image">
+                            <small class="input_condidion">*形式: jpg, jpeg, png<br></small>
+                            <small class="input_condidion">*最大サイズ: 250 x 250px</small>
                             @if ($errors->has('contact_image'))
                             <div class="text-danger">
                                 {{$errors->first('contact_image')}}

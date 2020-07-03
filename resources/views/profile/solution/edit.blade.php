@@ -35,7 +35,12 @@
                             </div>
                             @endif
                             <div class="form-text text-info">
-                                設定中: {{ old('logo_image', $my_profile->logo_image) }}
+                                @isset($my_profile->logo_image)
+                                設定中: <img src="{{ old('logo_image', $my_profile->logo_image) }}" alt="ロゴ画像">
+                                @endisset
+                                @empty($my_profile->logo_image)
+                                <p>画像は設定されていません</p>
+                                @endempty
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -131,7 +136,12 @@
                             </div>
                             @endif
                             <div class="form-text text-info">
-                                設定中: {{ old('solution_image', $my_profile->solution_image) }}
+                                @isset($my_profile->solution_image)
+                                設定中: <img src="{{ old('solution_image', $my_profile->solution_image) }}" alt="ソリューションに関する画像">
+                                @endisset
+                                @empty($my_profile->solution_image)
+                                <p>画像は設定されていません</p>
+                                @endempty
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -172,7 +182,12 @@
                             </div>
                             @endif
                             <div class="form-text text-info">
-                                設定中: {{ old('contact_image', $my_profile->contact_image) }}
+                                @isset($my_profile->contact_image)
+                                設定中: <img src="{{ old('contact_image', $my_profile->contact_image) }}" alt="担当者に関する画像">
+                                @endisset
+                                @empty($my_profile->contact_image)
+                                <p>画像は設定されていません</p>
+                                @endempty
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">

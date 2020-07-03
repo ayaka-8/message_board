@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\ChallengeProfile;
 use App\User;
 use Session;
+use Carbon\Carbon;
 
 class ChallengeProfileController extends Controller
 {
@@ -29,25 +31,54 @@ class ChallengeProfileController extends Controller
         $this->validate($request, ChallengeProfile::$rules);
         $challenge_profile = new ChallengeProfile;
         $form = $request->all();
-        //画像を保存
+        //画像の保存
         //ロゴ画像
-        if ($request->file('file')->inValid([])) {
-            $path = $request->file('logo_image')->store('public/challenge/image');
-            $challenge_profile->logo_image = basename($path);
+        if (isset($form['logo_image'])) {
+            //アップロード日時を取得 
+            $time = Carbon::now()->format('Y_m_d_h_i_s');
+            //画像ファイル名を取得
+            $name = $request->file('logo_image')->getClientOriginalName(); 
+            //ファイル名を指定
+            $filename = $time.'_'.$name;
+            //ファイル名を指定してs3へ保存
+            $path = Storage::disk('s3')->putFileAs('challenge_logo_images',$request->file('logo_image'), $filename, 'public');
+            //s3へのパスをカラムに保存
+            $challenge_profile->logo_image = Storage::disk('s3')->url($path);
+            unset($form['logo_image']);
         } else {
             $challenge_profile->logo_image = null;
         }
+        
         //お悩みに関する画像
-        if ($request->file('file')->inValid([])) {
-            $path = $request->file('challenge_image')->store('public/challenge/image');
-            $challenge_profile->challenge_image = basename($path);
+        if (isset($form['challenge_image'])) {
+            //アップロード日時を取得 
+            $time = Carbon::now()->format('Y_m_d_h_i_s');
+            //画像ファイル名を取得
+            $name = $request->file('challenge_image')->getClientOriginalName(); 
+            //ファイル名を指定
+            $filename = $time.'_'.$name;
+            //ファイル名を指定してs3へ保存
+            $path = Storage::disk('s3')->putFileAs('challenge_images',$request->file('challenge_image'), $filename, 'public');
+            //s3へのパスをカラムに保存
+            $challenge_profile->challenge_image = Storage::disk('s3')->url($path);
+            unset($form['challenge_image']);
         } else {
             $challenge_profile->challenge_image = null;
         }
+        
         //担当者に関する画像
-        if ($request->file('file')->inValid([])) {
-            $path = $request->file('contact_image')->store('public/challenge/image');
-            $challenge_profile->contact_image = basename($path);
+        if (isset($form['contact_image'])) {
+            //アップロード日時を取得 
+            $time = Carbon::now()->format('Y_m_d_h_i_s');
+            //画像ファイル名を取得
+            $name = $request->file('contact_image')->getClientOriginalName(); 
+            //ファイル名を指定
+            $filename = $time.'_'.$name;
+            //ファイル名を指定してs3へ保存
+            $path = Storage::disk('s3')->putFileAs('challenge_contact_images',$request->file('contact_image'), $filename, 'public');
+            //s3へのパスをカラムに保存
+            $challenge_profile->contact_image = Storage::disk('s3')->url($path);
+            unset($form['contact_image']);
         } else {
             $challenge_profile->contact_image = null;
         }
@@ -91,31 +122,67 @@ class ChallengeProfileController extends Controller
         //画像の保存
         //ロゴ画像の更新
         if (isset($form['logo_image'])) {
-            $path = $request->file('logo_image')->store('public/challenge/image');
-            $my_profile->logo_image = basename($path);
-            unset($my_profile->logo_image);
+            //アップロード日時を取得 
+            $time = Carbon::now()->format('Y_m_d_h_i_s');
+            //画像ファイル名を取得
+            $name = $request->file('logo_image')->getClientOriginalName(); 
+            //ファイル名を指定
+            $filename = $time.'_'.$name;
+            //ファイル名を指定してs3へ保存
+            $path = Storage::disk('s3')->putFileAs('challenge_logo_images',$request->file('logo_image'), $filename, 'public');
+            //s3へのパスをカラムに保存
+            $my_profile->logo_image = Storage::disk('s3')->url($path);
+            unset($form['logo_image']);
         } elseif(isset($request->remove)) {
             $my_profile->logo_image = null;
+            //削除する画像の取得
+            $del_image = $request->logo_image;
+            //s3から画像を削除
+            Storage::disk('s3')->delete($del_image);
             unset($form['remove']);
         }
         //ソリューションに関する画像の更新
-        if (isset($form['solution_image'])) {
-            $path = $request->file('solution_image')->store('public/challenge/image');
-            $my_profile->challenge_image = basename($path);
-            unset($my_profile->challenge_image);
+        if (isset($form['challenge_image'])) {
+            //アップロード日時を取得 
+            $time = Carbon::now()->format('Y_m_d_h_i_s');
+            //画像ファイル名を取得
+            $name = $request->file('challenge_image')->getClientOriginalName(); 
+            //ファイル名を指定
+            $filename = $time.'_'.$name;
+            //ファイル名を指定してs3へ保存
+            $path = Storage::disk('s3')->putFileAs('challenge_images',$request->file('challenge_image'), $filename, 'public');
+            //s3へのパスをカラムに保存
+            $my_profile->challenge_image = Storage::disk('s3')->url($path);
+            unset($form['challenge_image']);
         } elseif(isset($request->remove)) {
             $my_profile->challenge_image = null;
+            //削除する画像の取得
+            $del_image = $request->challenge_image;
+            //s3から画像を削除
+            Storage::disk('s3')->delete($del_image);
             unset($form['remove']);
         }
         //担当者に関する画像の更新
         if (isset($form['contact_image'])) {
-            $path = $request->file('contact_image')->store('public/challenge/image');
-            $my_profile->contact_image = basename($path);
-            unset($my_profile->contact_image);
+            //アップロード日時を取得 
+            $time = Carbon::now()->format('Y_m_d_h_i_s');
+            //画像ファイル名を取得
+            $filename = $request->file('contact_image')->getClientOriginalName(); 
+            //ファイル名を指定
+            $filename = $time.'_'.$filename;
+            //ファイル名を指定してs3へ保存
+            $path = Storage::disk('s3')->putFileAs('challenge_contact_images',$request->file('contact_image'), $filename, 'public');
+            //s3へのパスをカラムに保存
+            $my_profile->contact_image = Storage::disk('s3')->url($path);
+            unset($form['contact_image']);
         } elseif(isset($request->remove)) {
             $my_profile->contact_image = null;
+            //削除する画像の取得
+            $del_image = $request->contact_image;
+            //s3から画像を削除
+            Storage::disk('s3')->delete($del_image);
             unset($form['remove']);
-        } 
+        }
         
         unset($form['_token']);
         // 該当するデータを上書きして保存する

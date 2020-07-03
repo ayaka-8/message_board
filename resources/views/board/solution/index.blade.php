@@ -24,16 +24,15 @@
                 <div class="board-index col-md-8 mx-auto">
                     <div class="content px-2 py-2">
                         <h4>ソリューション一覧</h4>
-                        <!--画像が登録されていない場合はno-image画像を挿入-->
                         @if(count($solution_boards) > 0)
                         @foreach($solution_boards as $board)
                         <div class="media">
-                            @isset($board->logo_image)
-                            <img src="{{ asset('public/solution/image/' . $board->logo_image) }}" class="mx-3">
-                            @endisset
-                            @empty($board->logo_image)
-                            <img src="/storage/noimage.png" class="mx-3"><!-- TODO: alt -->
-                            @endempty
+                            @if($board->solution_image != null)
+                            <!--ソリューションに関する画像の表示-->
+                            <img src="{{ $board->solution_image }}" class="mx-3" alt="ソリューションに関する画像の表示">
+                            @else
+                            <img src="{{ $no_image }}" class="mx-3">
+                            @endif
                             <div class="media-body px-2">
                                 <h5 class="mt-0 ">ソリューションキーワード</h5>
                                 <p>{!! nl2br($board->solution_keyword) !!}</p>

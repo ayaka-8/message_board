@@ -32,10 +32,10 @@
                                 <tr><td>会社名</td><td>{{ $my_profile->public_name }}</td></tr>
                                 <tr><td>会社ロゴ</td>
                                 @isset($my_profile->logo_image)
-                                <td>{{ $my_profile->logo_image }}</td>
+                                <td><img src="{{ $my_profile->logo_image }}" alt="ロゴ画像"></td>
                                 @endisset
                                 @empty($my_profile->logo_image)
-                                <td><img src="/storage/noimage.png"></td>
+                                <td><img src="{{ $no_image }}"></td>
                                 @endempty
                                 </tr>
                                 <tr><td>地域</td><td>{{ $my_profile->area }}</td></tr>
@@ -45,21 +45,21 @@
                                 <tr><td>お悩み関するキーワード</td><td>{!! nl2br($my_profile->challenge_keyword) !!}</td></tr>
                                 <tr><td>現在の状況や課題</td><td>{!! nl2br($my_profile->challenge_detail) !!}</td></tr>
                                 <tr><td>お悩みに関する画像</td>
-                                @isset($my_profile->solution_image)
-                                <td>{{ $my_profile->solution_image }}</td>
+                                @isset($my_profile->challenge_image)
+                                <td><img src="{{ $my_profile->challenge_image }}" alt="お悩みに関する画像"></td>
                                 @endisset
-                                @empty($my_profile->solution_image)
-                                <td><img src="/storage/noimage.png"></td>
+                                @empty($my_profile->challenge_image)
+                                <td><img src="{{ $no_image }}"></td>
                                 @endempty</tr>
                                 <tr><td>相談者が考える解決策</td><td>{!! nl2br($my_profile->challenge_method) !!}</td></tr>
                                 <tr><td>メッセージ</td><td>{!! nl2br($my_profile->message) !!}</td></tr>
                                 <tr><td>担当者からのメッセージ</td><td>{!! nl2br($my_profile->contact_message) !!}</td></tr>
                                 <tr><td>担当者に関する画像</td>
                                 @isset($my_profile->contact_image)
-                                <td>{{ $my_profile->contact_image }}</td>
+                                <td><img src="{{ $my_profile->contact_image }}" alt="担当者に関する画像"></td>
                                 @endisset
                                 @empty($my_profile->contact_image)
-                                <td><img src="/storage/noimage.png"></td>
+                                <td><img src="{{ $no_image }}"></td>
                                 @endempty</tr>
                                 <tr><td>担当者のメールアドレス</td><td>{{ $my_profile->contact_email }}</td></tr>
                             </table>
@@ -77,10 +77,10 @@
                                 <tr><td>会社名</td><td>{{ $my_profile->public_name }}</td></tr>
                                 <tr><td>会社ロゴ</td>
                                 @isset($my_profile->logo_image)
-                                <td><img src="{{ $my_profile->logo_image }}"></td>
+                                <td><img src="{{ $my_profile->logo_image }}" alt="ロゴ画像"></td>
                                 @endisset
                                 @empty($my_profile->logo_image)
-                                <td><img src="/storage/noimage.png"></td>
+                                <td><img src="{{ $no_image }}"></td>
                                 @endempty
                                 </tr>
                                 <tr><td>地域</td><td>{{ $my_profile->area }}</td></tr>
@@ -92,19 +92,19 @@
                                 <tr><td>ソリューションの実績</td><td>{!! nl2br($my_profile->solution_performance) !!}</td></tr>
                                 <tr><td>ソリューションに関する画像</td>
                                 @isset($my_profile->solution_image)
-                                <td><img src="{{ $my_profile->solution_image }}"></td>
+                                <td><img src="{{ $my_profile->solution_image }}" alt="ソリューションに関する画像"></td>
                                 @endisset
                                 @empty($my_profile->solution_image)
-                                <td><img src="/storage/noimage.png"></td>
+                                <td><img src="{{ $no_image }}"></td>
                                 @endempty</tr>
                                 <tr><td>メッセージ</td><td>{!! nl2br($my_profile->message) !!}</td></tr>
                                 <tr><td>担当者からのメッセージ</td><td>{!! nl2br($my_profile->contact_message) !!}</td></tr>
                                 <tr><td>担当者に関する画像</td>
                                 @isset($my_profile->contact_image)
-                                <td><img src="{{ $my_profile->contact_image }}"></td>
+                                <td><img src="{{ $my_profile->contact_image }}" alt="担当者に関する画像"></td>
                                 @endisset
                                 @empty($my_profile->contact_image)
-                                <td><img src="/storage/noimage.png"></td>
+                                <td><img src="{{ $no_image }}"></td>
                                 @endempty</tr>
                                 <tr><td>担当者のメールアドレス</td><td>{{ $my_profile->contact_email }}</td></tr>
                             </table>

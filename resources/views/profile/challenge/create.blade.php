@@ -29,6 +29,8 @@
                         <label class="col-md-3">Company Logo</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="logo_image">
+                            <small class="input_condidion">*MIME type: jpg, jpeg, png<br></small>
+                            <small class="input_condidion">*Maximum size: 250 x 250px</small>
                             @if ($errors->has('logo_image'))
                             <div class="text-danger">
                                 {{$errors->first('logo_image')}}
@@ -106,6 +108,8 @@
                         <label class="col-md-3">Image for Your Current Challenge</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="challenge_image">
+                            <small class="input_condidion">*MIME type: jpg, jpeg, png<br></small>
+                            <small class="input_condidion">*Maximum size: 250 x 250px</small>
                             @if ($errors->has('challenge_image'))
                             <div class="text-danger">
                                 {{$errors->first('challenge_image')}}
@@ -150,6 +154,8 @@
                         <label class="col-md-3">Image for the Contact</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="contact_image">
+                            <small class="input_condidion">*MIME type: jpg, jpeg, png<br></small>
+                            <small class="input_condidion">*Maximum size: 250 x 250px</small>
                             @if ($errors->has('contact_image'))
                             <div class="text-danger">
                                 {{$errors->first('contact_image')}}

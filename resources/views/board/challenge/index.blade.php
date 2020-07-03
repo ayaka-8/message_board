@@ -27,13 +27,12 @@
                         @if(count($challenge_boards) > 0)
                         @foreach($challenge_boards as $board)
                         <div class="media">
-                            <!--画像が登録されていない場合はno-image画像を挿入-->
-                            @isset($board->logo_image)
-                            <img src="{{ asset('public/challenge/image/' . $board->logo_image) }}" class="mx-3">
-                            @endisset
-                            @empty($board->logo_image)
-                            <img src="/storage/noimage.png" class="mx-3">
-                            @endempty
+                            <!--お悩みに関する画像の表示-->
+                            @if($board->challenge_image != null)
+                            <img src="{{ $board->challenge_image }}" class="mx-3" alt="お悩みに関する画像の表示">
+                            @else
+                            <img src="{{ $no_image }}" class="mx-3">
+                            @endif
                             <div class="media-body px-2">
                                 <h5 class="mt-0 ">お悩みキーワード</h5>
                                 <p>{!! nl2br($board->challenge_keyword) !!}</p>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\ChallengeProfile;
 
@@ -25,7 +26,10 @@ class ChallengeBoardController extends Controller
             $challenge_boards = ChallengeProfile::orderBy('public_name', 'desc')->paginate(5);
         }
         
-        return view('board.challenge.index', ['challenge_boards' => $challenge_boards, 'search_keyword' => $search_keyword]);
+        //画像がない場合のデフォルト用画像をs3から取得
+        $no_image_url = Storage::disk('s3')->url('no_image/noimage.png');
+        
+        return view('board.challenge.index', ['challenge_boards' => $challenge_boards, 'search_keyword' => $search_keyword, 'no_image' => $no_image_url]);
     }
     
     /**
@@ -40,8 +44,10 @@ class ChallengeBoardController extends Controller
             ['id', '!=', $challenge_board->id],
             ['user_id', $challenge_board->user_id]
             ])->get();
+        //画像がない場合のデフォルト用画像をs3から取得
+        $no_image_url = Storage::disk('s3')->url('no_image/noimage.png');
         
-        return view('board.challenge.show', ['board' => $challenge_board, 'other_boards' => $other_boards]);
+        return view('board.challenge.show', ['board' => $challenge_board, 'other_boards' => $other_boards, 'no_image' => $no_image_url]);
     }
     
 }
