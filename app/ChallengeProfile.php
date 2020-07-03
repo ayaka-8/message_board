@@ -13,7 +13,7 @@ class ChallengeProfile extends Model
      */
     public static $rules = array(
         'public_name' => 'required',
-        'logo_image' => 'nullable|file|image|mimes:png,jpg|dimensions:max_width=400,max_height=400',
+        'logo_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=250,max_height=250',
         'area' => 'required',
         'address' => 'required',
         'phone_number' => 'required|numeric|digits_between:8,11',
@@ -21,9 +21,9 @@ class ChallengeProfile extends Model
         'challenge_keyword' => 'required',
         'challenge_detail' => 'required',
         'challenge_method' => 'required',
-        'challenge_image' => 'nullable|file|image|mimes:png,jpg|dimensions:max_width=400,max_height=400',
+        'challenge_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=250,max_height=250',
         'message' => 'required',
-        'contact_image' => 'nullable|file|image|mimes:png,jpg|dimensions:max_width=400,max_height=400',
+        'contact_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=250,max_height=250',
         'contact_message' => 'required',
         'contact_email' => 'required|email',
         );

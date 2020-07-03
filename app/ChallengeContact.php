@@ -27,6 +27,14 @@ class ChallengeContact extends Model
         ];
         
     /**
+     * usersテーブルとリレーション
+     */ 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+    
+    /**
      * challenge_profilesテーブルとリレーション
      */ 
     public function challengeProfile()

@@ -22,7 +22,7 @@
                                 <label class="control-label col-md-3 mx-auto">お問い合わせしたい企業</label>
                                 <div class="col-md-9">
                                     <!-- お問い合わせしたい企業のid　-->
-                                    <input class="form-control" type="hidden" name="recipient_id" id="InputRecipientId" value="{{ old('recipient_id', $recipient_id) }}">
+                                    <input class="form-control" type="hidden" name="solution_id" id="InputSolutionId" value="{{ old('solution_id', $solution_id) }}">
                                     <input class="form-control" name="recipient_name" type="text" id="InputRecipientName" value="{{ old('recipient_name', $recipient_name) }}" readonly> 
                                 </div>
                             </div>

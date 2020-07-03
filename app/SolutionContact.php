@@ -28,6 +28,13 @@ class SolutionContact extends Model
         ];
         
     /**
+     * usersテーブルとリレーション
+     */ 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+    /**
      * solution_profilesテーブルとリレーション
      */ 
     public function solutionProfile()

@@ -20,14 +20,14 @@ class SolutionContactController extends Controller
     {
         //お問い合わせ項目の内容を$subjectsに代入
         $subjects = SolutionContact::$subjects;
-        //問い合わせしたい企業のuser_idを取得
-        $recipient_id = SolutionProfile::find($request->id)->user_id;
+        //問い合わせしたい企業のプロフィールidを取得
+        $solution_id = $request->id;
         //問い合わせしたい企業のpublic_nameを取得
         $recipient_name = SolutionProfile::find($request->id)->public_name;
         //ログインユーザーのidを取得
         $user_id = Auth::id();
         
-        return view('contact.solution.input', ['subjects' => $subjects, 'recipient_id' => $recipient_id, 'recipient_name' => $recipient_name, 'user_id' => $user_id]);
+        return view('contact.solution.input', ['subjects' => $subjects, 'solution_id' => $solution_id, 'recipient_name' => $recipient_name, 'user_id' => $user_id]);
     }
     
     //お問い合わせ内容確認
@@ -49,7 +49,7 @@ class SolutionContactController extends Controller
         //戻るボタンが押された場合
         if($request->action === 'back') {
             //問い合わせしたい企業のプロフィールidを取得し、パラメーターとして渡す
-            $profile_id = SolutionProfile::where('user_id', $request->recipient_id)->first()->id;
+            $profile_id = $request->solution_id;
             return redirect()->action('SolutionContactController@input', ['id' => $profile_id])->withInput($contact_form);
         }
         //データを保存

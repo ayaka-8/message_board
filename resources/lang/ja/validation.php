@@ -167,6 +167,7 @@ return [
         'subject' => 'お問い合わせ項目',
         'content' => 'お問い合わせ内容',
         'email' => 'メールアドレス',
-        'password' => 'パスワード'],
+        'password' => 'パスワード',
+        'name' => '名前'],
 
 ];

@@ -16,11 +16,11 @@
                             <tr><td>お問い合わせ項目</td><td>{{ $contact->subject }}</td></tr>
                             <tr><td>名前</td><td>{{ $contact->name }}</td></tr>
                             <tr><td>メールアドレス</td><td>{{ $contact->email }}</td></tr>
-                            <tr><td>お問い合わせ内容</td><td>{{ $contact->content }}</td></tr>
+                            <tr><td>お問い合わせ内容</td><td>{!! nl2br($contact->content) !!}</td></tr>
                         </table>
                         <!--隠しフィールド-->
                         <form action="{{ action('ChallengeContactController@complete') }}" method="post">
-                            <input type="hidden" name="recipient_id" class="form-control" id="InputRecipientId" value="{{ $contact->recipient_id }}">
+                            <input type="hidden" name="challenge_id" class="form-control" id="InputChallengeId" value="{{ $contact->challenge_id }}">
                             <input type="hidden" name="recipient_name" class="form-control" id="InputRecipientName" value="{{ $contact->recipient_name }}">
                             <input type="hidden" name="subject" class="form-control" id="InputSubject" value="{{ $contact->subject }}">
                             <input type="hidden" name="name" class="form-control" id="InputName" value="{{ $contact->name }}">
