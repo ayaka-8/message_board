@@ -190,4 +190,17 @@ class ChallengeProfileController extends Controller
         //マイページへ
         return redirect()->route('mypage')->with('status', 'プロフィール情報を更新しました');
     }
+    
+    /**
+     * プロフィールの削除->マイページ
+     */
+    public function delete(Request $request)
+    {
+        //該当するプロフィールの取得
+        $my_profile = ChallengeProfile::find($request->id);
+        //削除
+        $my_profile->delete();
+        
+        return redirect()->route('mypage')->with('status', 'プロフィール情報を削除しました');
+    }
 }

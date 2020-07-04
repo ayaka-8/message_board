@@ -14,19 +14,21 @@
  * ログイン済みユーザー向けプロフィール登録、マイページ、編集ページ
  */
 Route::group(['middleware' => 'auth'], function() {
-    //お悩み企業向けプロフィールの登録、編集、更新
+    //お悩み企業向けプロフィールの登録、編集、更新、削除
     Route::get('profile/challenge/create', 'ChallengeProfileController@add');
     Route::post('profile/challenge/create', 'ChallengeProfileController@create');
     Route::get('profile/challenge/edit/{id}', 'ChallengeProfileController@edit');
     Route::post('profile/challenge/edit/{id}', 'ChallengeProfileController@update');
+    Route::delete('profile/challenge/delete', 'ChallengeProfileController@delete');
     //お悩み企業向けユーザー情報の編集、更新
     Route::get('profile/challenge/mypage/user/edit', 'ChallengeUserController@edit');
     Route::post('profile/challenge/mypage/user/edit', 'ChallengeUserController@update');
-    //ソリューション企業向けプロフィールの登録、編集、更新
+    //ソリューション企業向けプロフィールの登録、編集、更新、削除
     Route::get('profile/solution/create', 'SolutionProfileController@add');
     Route::post('profile/solution/create', 'SolutionProfileController@create');
     Route::get('profile/solution/edit/{id}', 'SolutionProfileController@edit');
     Route::post('profile/solution/edit/{id}', 'SolutionProfileController@update');
+    Route::delete('profile/solution/delete', 'SolutionProfileController@delete');
     //ソリューション企業向けユーザー情報の編集、更新
     Route::get('profile/solution/mypage/user/edit', 'SolutionUserController@edit');
     Route::post('profile/solution/mypage/user/edit', 'SolutionUserController@update');

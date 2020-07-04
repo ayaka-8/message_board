@@ -63,13 +63,41 @@
                                 @endempty</tr>
                                 <tr><td>担当者のメールアドレス</td><td>{{ $my_profile->contact_email }}</td></tr>
                             </table>
+                            <!--お悩みプロフィール編集・削除ボタン-->
                             <div class="text-center my-2 px-2">
                                 <a href="{{ action('ChallengeProfileController@edit', ['id' => $my_profile]) }}" class="btn btn-primary">編集</a>
+                                <!--モーダルを開く-->
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProfile{{$my_profile->id}}">削除</button>
+                            </div>
+                            <!--モーダル（お悩みプロフィール削除）-->
+                            <div class="modal fade" id="deleteProfile{{$my_profile->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <form method="post" action="{{ action('ChallengeProfileController@delete', ['id' => $my_profile->id]) }}">
+                                    {{ method_field('delete') }}
+                                    {{ csrf_field() }}
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel">プロフィールの削除</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                このプロフィールを本当に削除しますか。<br>
+                                                <p>会社名: {{$my_profile->public_name }}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                                                <button type="submit" class="btn btn-danger" id="deletebtn">削除</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>    
                             </div>
                         </div>
                         @endforeach
                         @endif
-                        <!--ソリューションプロフィールがある場合-->
+                        <!--ソリューションプロフィールがある場合 -->
                         @if($solution_profiles)
                         @foreach ($solution_profiles as $my_profile)
                         <div class="solution-profile card my-2">
@@ -108,14 +136,42 @@
                                 @endempty</tr>
                                 <tr><td>担当者のメールアドレス</td><td>{{ $my_profile->contact_email }}</td></tr>
                             </table>
+                            <!--ソリューションプロフィール編集・削除ボタン-->
                             <div class="text-center my-2 px-2">
                                 <a href="{{ action('SolutionProfileController@edit', ['id' => $my_profile->id]) }}" class="btn btn-primary">編集</a>
+                                <!--モーダルを開く-->
+                                <button type="button" class="btn btn-danger" id="delete-solution" data-toggle="modal" data-target="#deleteProfile{{$my_profile->id}}">削除</button>
+                            </div>
+                            <!--モーダル（ソリューションプロフィール削除）-->
+                            <div class="modal fade" id="deleteProfile{{$my_profile->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <form method="post" action="{{ action('SolutionProfileController@delete', ['id' => $my_profile->id]) }}">
+                                    {{ method_field('delete') }}
+                                    {{ csrf_field() }}
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel">プロフィールの削除</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                このプロフィールを本当に削除しますか。<br>
+                                                <p>会社名: {{$my_profile->public_name }}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                                                <button type="submit" class="btn btn-danger" id="deletebtn">削除</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>    
                             </div>
                         </div>
                         @endforeach
                         @endif
-                        @if($challenge_profiles == $solution_profiles) 
                         <!--プロフィール情報がなかった場合 -->
+                        @if($challenge_profiles == $solution_profiles) 
                         <div class="card text-center my-3">
                             <div class="card-body">
                                 <p class="card-text">引き続きプロフィール情報の登録をお願いします。</p>
