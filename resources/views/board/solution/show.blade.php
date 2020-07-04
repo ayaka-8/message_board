@@ -12,7 +12,15 @@
                         <div class="media col-md-10 col-sm mx-auto">
                             <!--ソリューションに関する画像の表示-->
                             @if($board->solution_image != null)
-                            <img src="{{ $board->solution_image }}" class="img-fluid mr-3 mx-3" alt="ソリューションに関する画像">
+                            <img src="{{ $board->solution_image }}" class="thumbnail align-center mr-3 mx-3" alt="ソリューションに関する画像" data-toggle="modal" data-target="#sol-image-modal" style="cursor:pointer">
+                            <!--モーダルで画像の表示-->
+                            <div class="modal fade" id="sol-image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content text-center">
+                                        <img src="{{ $board->solution_image }}" width="100%" height="100%" data-dismiss="modal">
+                                    </div>
+                                </div>
+                            </div>
                             @else
                             <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
                             @endif
@@ -38,7 +46,15 @@
                         <div class="media col-md-10 mx-auto">
                             <!--ロゴ画像の表示-->
                             @if($board->logo_image !=null)
-                            <img src="{{ $board->logo_image }}" class="img-fluid mr-3 mx-3" alt="ロゴ画像">
+                            <img src="{{ $board->logo_image }}" class="thumbnail align-center mr-3 mx-3" alt="ロゴ画像" data-toggle="modal" data-target="#logo-image-modal" style="cursor:pointer">
+                            <!--モーダルで画像の表示-->
+                            <div class="modal fade" id="logo-image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content text-center">
+                                        <img src="{{ $board->logo_image }}" width="100%" height="100%" data-dismiss="modal">
+                                    </div>
+                                </div>
+                            </div>
                             @else
                             <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
                             @endif
@@ -70,7 +86,15 @@
                         <div class="media col-md-10 mx-auto">
                             <!--担当者に関する画像の表示-->
                             @if($board->contact_image != null)
-                            <img src="{{ $board->contact_image }}" class="img-fluid mr-3 mx-3" alt="担当者に関する画像">
+                            <img src="{{ $board->contact_image }}" class="thumbnail align-center mr-3 mx-3" alt="担当者に関する画像" data-toggle="modal" data-target="#cont-image-modal" style="cursor:pointer">
+                            <!--モーダルで画像の表示-->
+                            <div class="modal fade" id="cont-logo-image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content text-center">
+                                        <img src="{{ $board->contact_image }}" width="100%" height="100%" data-dismiss="modal">
+                                    </div>
+                                </div>
+                            </div>
                             @else
                             <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
                             @endif
@@ -95,7 +119,15 @@
                         <div class="media col-md-10 col-sm mx-auto">
                             <!--ソリューションに関する画像の表示-->
                             @if($board->solution_image != null)
-                            <img src="{{ $board->solution_image }}" class="img-fluid mr-3 mx-3" alt="ソリューションに関する画像">
+                            <img src="{{ $board->solution_image }}" class="img-fluid align-center mr-3 mx-3" alt="ソリューションに関する画像" data-toggle="modal" data-target="#image-modal" style="cursor:pointer">
+                            <!--モーダルで画像の表示-->
+                            <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content text-center">
+                                        <img src="{{ $board->solution_image }}" width="100%" height="100%" data-dismiss="modal">
+                                    </div>
+                                </div>
+                            </div>
                             @else
                             <img src="{{ $no_image }}" class="img-fluid mr-3 mx-3">
                             @endif

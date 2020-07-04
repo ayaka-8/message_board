@@ -29,7 +29,15 @@
                         <div class="media">
                             <!--お悩みに関する画像の表示-->
                             @if($board->challenge_image != null)
-                            <img src="{{ $board->challenge_image }}" class="mx-3" alt="お悩みに関する画像の表示">
+                            <img src="{{ $board->challenge_image }}" class="thumbnail align-center mx-3" alt="お悩みに関する画像の表示" data-toggle="modal" data-target="#image-modal" style="cursor:pointer">
+                            <!--モーダルで画像の表示-->
+                            <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content text-center">
+                                        <img src="{{ $board->challenge_image }}" width="100%" height="100%" data-dismiss="modal">
+                                    </div>
+                                </div>
+                            </div>
                             @else
                             <img src="{{ $no_image }}" class="mx-3">
                             @endif
