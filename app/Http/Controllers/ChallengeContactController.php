@@ -61,7 +61,7 @@ class ChallengeContactController extends Controller
         Mail::send(new Contact([
             'to' => $request->email,
             'to_name' => $request->name,
-            'from' => 'from@example.com',
+            'from' => 'discoverbusinessopportunities@gmail.com',
             'from_name' => '発見 世界のビジネスチャンス',
             'recipient_name' => $request->recipient_name,
             'subject' => 'お問い合わせありがとうございました',
