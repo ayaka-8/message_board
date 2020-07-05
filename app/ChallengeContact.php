@@ -12,11 +12,11 @@ class ChallengeContact extends Model
      * お問合わせのバリデーション
      */
     public static $rules = array(
-        'name' => 'required',
-        'email' => 'required|email',
+        'name' => 'required|max:255',
+        'email' => 'required|email|max:255',
         'subject' => 'required',
         'subject.*' =>'in:現在の状況や課題の内容について,その他',
-        'content' => 'required'
+        'content' => 'required|max:255'
         );
     /**
      * セレクトボックスに表示するお問合わせ項目

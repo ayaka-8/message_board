@@ -12,20 +12,20 @@ class SolutionProfile extends Model
      * ソリューションプロフィールのバリデーション
      */
     public static $rules = array(
-        'public_name' => 'required',
+        'public_name' => 'required|max:255',
         'logo_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=250,max_height=250',
-        'area' => 'required',
-        'address' => 'required',
+        'area' => 'required|max:255',
+        'address' => 'required|max:255',
         'phone_number' => 'required|numeric|digits_between:8,11',
-        'url' => 'url|nullable',
-        'solution_keyword' => 'required',
-        'solution_detail' => 'required',
-        'solution_performance' => 'required',
+        'url' => 'url|nullable|max:255',
+        'solution_keyword' => 'required|max:255',
+        'solution_detail' => 'required|max:255',
+        'solution_performance' => 'required|max:255',
         'solution_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=250,max_height=250',
-        'message' => 'required',
+        'message' => 'required|max:255',
         'contact_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=250,max_height=250',
-        'contact_message' => 'required',
-        'contact_email' => 'required|email',
+        'contact_message' => 'required|max:255',
+        'contact_email' => 'required|email|max:255',
         );
         
     /**

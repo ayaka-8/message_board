@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">ソリューションに関する画像</label>
+                        <label class="col-md-3">ソリューションに関する<br>画像</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="solution_image">
                             <small class="input_condidion">*形式: jpg, jpeg, png<br></small>
