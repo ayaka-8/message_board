@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use App\User;
 
-class ChallengeUserController extends Controller
+class UserController extends Controller
 {
     /**
      * マイページ内ユーザー情報の編集、更新
@@ -33,6 +34,6 @@ class ChallengeUserController extends Controller
         unset($form['_token']);
         $user->fill($form)->save();
         
-        return redirect()->route('mypage')->with('status', 'ユーザー情報を更新しました');
+        return redirect()->route('mypage')->with('status', 'ユーザー情報を更新しました<br>Your user profile has been updated.');
     }
 }

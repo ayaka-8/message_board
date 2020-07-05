@@ -37,10 +37,10 @@
                         <ul class="navbar-nav ml-auto">
                             <li><a class="nav-link" href="/solution/index">ソリューション一覧</a></li>
                             <li><a class="nav-link" href="/challenge/index">お悩み一覧</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">新規登録</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('register') }}">新規登録</a></li>
                         @else
                             <li><a class="nav-link" href="{{ route('mypage') }}">マイページ</a></li>
                             <li class="nav-item dropdown">

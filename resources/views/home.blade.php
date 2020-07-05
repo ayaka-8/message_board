@@ -32,7 +32,7 @@
                                     @if (count($solutions) > 0)
                                     @foreach ($solutions as $solution)
                                     　<div class="solution-group">
-                                    　   <div class="col-md-4">{{ $solution->updated_at }}</div>
+                                    　   <div class="col-md-4">{{ $solution->created_at }}</div>
                                     　   <div class="col-md-8">
                                     　       <a href="{{ action('SolutionBoardController@show', ['id' => $solution->id]) }}">{{ $solution->public_name }}</a>
                                     　   </div>
@@ -51,7 +51,7 @@
                                     @if (count($challenges) > 0)
                                     @foreach ($challenges as $challenge)
                                     　<div class="challenge-group">
-                                    　   <div class="col-md-4">{{ $challenge->updated_at }}</div>
+                                    　   <div class="col-md-4">{{ $challenge->created_at }}</div>
                                     　   <div class="col-md-8">
                                     　       <a href="{{ action('ChallengeBoardController@show', ['id' => $challenge->id]) }}">{{ $challenge->public_name }}</a>
                                     　   </div>

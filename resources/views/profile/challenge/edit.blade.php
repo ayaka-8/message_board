@@ -1,21 +1,21 @@
 <!-- お悩み企業向けプロフィール編集画面　-->
 @extends('layouts.common')
-@section('title', 'プロフィール編集')
+@section('title', 'Edit Profile')
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-9 mx-auto">
-                <h2>プロフィール編集</h2>
+                <h2>Edit Profile Form</h2>
                 <form action="{{ action('ChallengeProfileController@update', ['id' => $my_profile->id]) }}" method="post" enctype="multipart/form-data">
                     <!-- エラーメッセージ の表示 -->
                     @if (count($errors) > 0)
                         <div class="alert alert-danger" role="alert">
-                            入力に問題があります。再入力してください。
+                            There are some errors, please correct them below.
                         </div>
                     @endif
                     <!--　エラーがあれば編集中の内容を表示（全項目）　-->
                     <div class="form-group row">
-                        <label class="col-md-3" >会社名 (公開名)</label>
+                        <label class="col-md-3" >Company Name<br>(Public Name)</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="public_name" value="{{ old('public_name', $my_profile->public_name) }}">
                             @if ($errors->has('public_name'))
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">会社ロゴ</label>
+                        <label class="col-md-3">Company Logo</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="logo_image">
                             @if ($errors->has('logo_image'))
@@ -36,21 +36,21 @@
                             @endif
                             <div class="form-text text-info">
                                 @isset($my_profile->logo_image)
-                                設定中: <img src="{{ old('logo_image', $my_profile->logo_image) }}" alt="ロゴ画像">
+                                Setting: <img src="{{ old('logo_image', $my_profile->logo_image) }}" alt="Company Logo">
                                 @endisset
                                 @empty($my_profile->logo_image)
-                                <p>画像は設定されていません</p>
+                                <p>There is no image set.</p>
                                 @endempty
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
+                                    <input type="checkbox" class="form-check-input" name="remove" value="true">Delete the image.
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">地域名</label></label>
+                        <label class="col-md-3">Area</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="area" value="{{ old('area', $my_profile->area) }}">
                             @if ($errors->has('area'))
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">住所</label>
+                        <label class="col-md-3">Address</label>
                         <div class="col-md-9">
                             <textarea class="form-control" name="address" rows="3">{{ old('address', $my_profile->address) }}</textarea>
                             @if ($errors->has('address'))
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">電話番号</label>
+                        <label class="col-md-3">Phone</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number', $my_profile->phone_number) }}">
                             @if ($errors->has('phone_number'))
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">公式サイト</label>
+                        <label class="col-md-3">Official Website</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="url" value="{{ old('url', $my_profile->url) }}">
                             @if ($errors->has('url'))
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">お悩みに関するキーワード</label>
+                        <label class="col-md-3">Keywords for Your Challenges</label>
                         <div class="col-md-9">
                             <textarea class="form-control" name="challenge_keyword" row="3">{{ old('challenge_keyword', $my_profile->challenge_keyword) }}</textarea>
                             @if ($errors->has('challenge_keyword'))
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">現在の状況や課題</label>
+                        <label class="col-md-3">Current Situations and Challenges</label>
                         <div class="col-md-9">
                             <textarea class="form-control" name="challenge_detail" row="10">{{ old('challenge_detail', $my_profile->challenge_detail) }}</textarea>
                             @if ($errors->has('challenge_detail'))
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">お悩みに関する画像</label>
+                        <label class="col-md-3">Image for Your Current Challenge</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="challenge_image">
                             @if ($errors->has('challenge_image'))
@@ -126,21 +126,21 @@
                             @endif
                             <div class="form-text text-info">
                                 @isset($my_profile->challenge_image)
-                                設定中: <img src="{{ old('challenge_image', $my_profile->challenge_image) }}" alt="お悩みに関する画像">
+                                Setting: <img src="{{ old('challenge_image', $my_profile->challenge_image) }}" alt="Image for Your Current Challenge">
                                 @endisset
                                 @empty($my_profile->challenge_image)
-                                <p>画像は設定されていません</p>
+                                <p>There is no image set.</p>
                                 @endempty
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
+                                    <input type="checkbox" class="form-check-input" name="remove" value="true">Delete the image.
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">相談者が考える解決策</label>
+                        <label class="col-md-3">Expected Solution</label>
                         <div class="col-md-9">
                             <textarea class="form-control" name="challenge_method" row="10">{{ old('challenge_method', $my_profile->challenge_method) }}</textarea>
                             @if ($errors->has('challenge_method'))
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">メッセージ</label>
+                        <label class="col-md-3">Message</label>
                         <div class="col-md-9">
                             <textarea class="form-control" name="message" row="10">{{ old('message', $my_profile->message) }}</textarea>
                             @if ($errors->has('message'))
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">担当者からのメッセージ</label>
+                        <label class="col-md-3">Message from the Contact</label>
                         <div class="col-md-9">
                             <textarea class="form-control" name="contact_message" row="10">{{ old('contact_message', $my_profile->contact_message) }}</textarea>
                             @if ($errors->has('contact_message'))
@@ -173,7 +173,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">担当者に関する画像</label>
+                        <label class="col-md-3">Image for the Contact</label>
                         <div class="col-md-9">
                             <input type="file" class="form-control-file" name="contact_image">
                             @if ($errors->has('contact_image'))
@@ -183,21 +183,21 @@
                             @endif
                             <div class="form-text text-info">
                                 @isset($my_profile->contact_image)
-                                設定中: <img src="{{ old('contact_image', $my_profile->contact_image) }}" alt="担当者に関する画像">
+                                Setting: <img src="{{ old('contact_image', $my_profile->contact_image) }}" alt="Image for the Contact">
                                 @endisset
                                 @empty($my_profile->contact_image)
-                                <p>画像は設定されていません</p>
+                                <p>There is no image set.</p>
                                 @endempty
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
+                                    <input type="checkbox" class="form-check-input" name="remove" value="true">Delete the image.
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">担当者メールアドレス</label>
+                        <label class="col-md-3">Email of the Contact</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="contact_email" value="{{ old('contact_email', $my_profile->contact_email) }}">
                             @if ($errors->has('contact_email'))
@@ -213,7 +213,7 @@
                         {{ csrf_field() }}
                         <div class="form-group row mb-0">
                             <div class="text-center col-md-6 offset-md-4">
-                                <input type="submit" class="btn btn-primary" value="更新">
+                                <input type="submit" class="btn btn-primary" value="Update">
                             </div>
                         </div>
                     </div>

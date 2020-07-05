@@ -92,7 +92,7 @@ class ChallengeProfileController extends Controller
         $challenge_profile->fill($form);
         $challenge_profile->save();
         //マイページへ
-        return redirect()->route('mypage')->with('status', 'プロフィールを登録しました');
+        return redirect()->route('mypage')->with('status', 'Your profile has been registered.');
     }
     
     /**
@@ -188,7 +188,7 @@ class ChallengeProfileController extends Controller
         // 該当するデータを上書きして保存する
         $my_profile->fill($form)->save();
         //マイページへ
-        return redirect()->route('mypage')->with('status', 'プロフィール情報を更新しました');
+        return redirect()->route('mypage')->with('status', 'Your profile has been updated.');
     }
     
     /**
@@ -201,6 +201,6 @@ class ChallengeProfileController extends Controller
         //削除
         $my_profile->delete();
         
-        return redirect()->route('mypage')->with('status', 'プロフィール情報を削除しました');
+        return redirect()->route('mypage')->with('status', 'Your profile has been deleted.');
     }
 }
