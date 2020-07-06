@@ -2,7 +2,7 @@
 @extends('layouts.common')
 @section('title', 'ユーザー情報編集 (Edit User Profile)')
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>ユーザー登録内容の編集 (Edit User Profile)</h2>

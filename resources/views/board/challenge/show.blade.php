@@ -2,7 +2,7 @@
 @extends('layouts.common')
 @section('title', 'お悩み詳細')
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <!-- お悩み情報 -->
             <div class="challenge-group col-md-8 mx-auto">

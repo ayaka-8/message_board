@@ -114,7 +114,7 @@
     @endif
     <!--ソリューションプロフィールがある場合-->
     @if(count($solution_profiles) > 0)
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 mx-auto">
                 <h2>マイページ</h2>
@@ -224,7 +224,7 @@
     </div>
     <!--プロフィール情報がなかった場合 -->
     @if($challenge_profiles == $solution_profiles)
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 mx-auto">
                 <h2>マイページ (My Acoount)</h2>

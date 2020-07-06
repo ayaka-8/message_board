@@ -2,7 +2,7 @@
 @extends('layouts.common')
 @section('title', 'お問い合わせページ')
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 mx-auto">
                 <div class="card my-3">

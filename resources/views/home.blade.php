@@ -18,7 +18,7 @@
                 <p class="lead">このサイトは日本の中小企業と悩みを抱える海外の企業や自治体の情報を掲示し、ビジネスチャンスにつなげる掲示板サイトです。</p>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 mx-auto">
                 <!--新着情報-->

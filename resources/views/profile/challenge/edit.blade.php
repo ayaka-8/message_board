@@ -2,7 +2,7 @@
 @extends('layouts.common')
 @section('title', 'Edit Profile')
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 mx-auto">
                 <h2>Edit Profile Form</h2>

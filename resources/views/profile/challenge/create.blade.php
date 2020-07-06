@@ -3,7 +3,7 @@
 @section('title', 'Regisration Form')
 @section('content')
     @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 mx-auto">
                 <h2>Regisration Form<br>（for Foreign Corporate and Local Government）</h2>

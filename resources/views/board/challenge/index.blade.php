@@ -2,7 +2,7 @@
 @extends('layouts.common')
 @section('title', 'お悩み一覧')
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <!-- キーワード検索　-->
