@@ -26,8 +26,8 @@
                         <h4>ソリューション一覧</h4>
                         @if(count($solution_boards) > 0)
                         @foreach($solution_boards as $board)
-                        <div class="media">
-                            <div class="media-image col-sm-6 my-3">
+                        <div class="media d-flex flex-column flex-wrap">
+                            <div class="media-image my-3">
                                 @if($board->solution_image != null)
                                 <!--ソリューションに関する画像の表示-->
                                 <img src="{{ $board->solution_image }}" class="img-fluid thumbnail align-center mx-3" alt="ソリューションに関する画像の表示" data-toggle="modal" data-target="#image-modal" style="cursor:pointer">
@@ -44,10 +44,10 @@
                                 @endif
                             </div>
                             
-                            <div class="media-body col-sm-6 px-2 my-3">
-                                <h5 class="mt-0 col-sm-10">ソリューションキーワード</h5>
+                            <div class="media-body px-2 my-3">
+                                <h5 class="mt-0">ソリューションキーワード</h5>
                                 <p>{!! nl2br($board->solution_keyword) !!}</p>
-                                <h5 class="mt-0 col-sm-10">ソリューション会社名</h5>
+                                <h5 class="mt-0">ソリューション会社名</h5>
                                 <p>{{ $board->public_name }}</p>
                                 <div class="text-right">
                                     <a href="{{ action('SolutionBoardController@show', ['id' => $board->id]) }}" class="btn btn-primary">詳細ページへ</a>
