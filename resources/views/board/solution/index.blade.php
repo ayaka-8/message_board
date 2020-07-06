@@ -27,21 +27,24 @@
                         @if(count($solution_boards) > 0)
                         @foreach($solution_boards as $board)
                         <div class="media">
-                            @if($board->solution_image != null)
-                            <!--ソリューションに関する画像の表示-->
-                            <img src="{{ $board->solution_image }}" class="thumbnail align-center mx-3" alt="ソリューションに関する画像の表示" data-toggle="modal" data-target="#image-modal" style="cursor:pointer">
-                            <!--モーダルで画像の表示-->
-                            <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
-                                <div class="modal-dialog modal-md">
-                                    <div class="modal-content text-center">
-                                        <img src="{{ $board->solution_image }}" width="100%" height="100%" data-dismiss="modal">
+                            <div class="media-image mt-3">
+                                @if($board->solution_image != null)
+                                <!--ソリューションに関する画像の表示-->
+                                <img src="{{ $board->solution_image }}" class="thumbnail align-center mx-3" alt="ソリューションに関する画像の表示" data-toggle="modal" data-target="#image-modal" style="cursor:pointer">
+                                <!--モーダルで画像の表示-->
+                                <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
+                                    <div class="modal-dialog modal-md">
+                                        <div class="modal-content text-center">
+                                            <img src="{{ $board->solution_image }}" width="100%" height="100%" data-dismiss="modal">
+                                        </div>
                                     </div>
                                 </div>
+                                @else
+                                <img src="{{ $no_image }}" class="mx-3">
+                                @endif
                             </div>
-                            @else
-                            <img src="{{ $no_image }}" class="mx-3">
-                            @endif
-                            <div class="media-body px-2">
+                            
+                            <div class="media-body px-2 mt-3">
                                 <h5 class="mt-0 ">ソリューションキーワード</h5>
                                 <p>{!! nl2br($board->solution_keyword) !!}</p>
                                 <h5 class="mt-0 ">ソリューション会社名</h5>
