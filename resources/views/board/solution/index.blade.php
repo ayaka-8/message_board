@@ -43,7 +43,7 @@
                                 <img src="{{ $no_image }}" class="mx-3">
                                 @endif
                             </div>
-                            
+                            <div class="d-block d-md-none w-100"></div>
                             <div class="media-body col px-2 my-3">
                                 <h5 class="mt-0">ソリューションキーワード</h5>
                                 <p>{!! nl2br($board->solution_keyword) !!}</p>
