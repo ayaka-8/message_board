@@ -26,7 +26,7 @@
                         <h4>ソリューション一覧</h4>
                         @if(count($solution_boards) > 0)
                         @foreach($solution_boards as $board)
-                        <div class="media d-flex flex-column flex-wrap">
+                        <div class="media d-sm-flex flex-sm-column flex-sm-wrap">
                             <div class="media-image my-3">
                                 @if($board->solution_image != null)
                                 <!--ソリューションに関する画像の表示-->
