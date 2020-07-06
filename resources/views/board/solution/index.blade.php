@@ -27,7 +27,7 @@
                         @if(count($solution_boards) > 0)
                         @foreach($solution_boards as $board)
                         <div class="media row">
-                            <div class="media-image col my-3">
+                            <div class="media-image col my-3 mx-auto">
                                 @if($board->solution_image != null)
                                 <!--ソリューションに関する画像の表示-->
                                 <img src="{{ $board->solution_image }}" class="img-fluid thumbnail mx-3" alt="ソリューションに関する画像の表示" data-toggle="modal" data-target="#image-modal" style="cursor:pointer">
@@ -43,8 +43,9 @@
                                 <img src="{{ $no_image }}" class="mx-3">
                                 @endif
                             </div>
-                            <div class="d-block d-md-none w-100"></div>
-                            <div class="media-body col px-2 my-3">
+                            <!--xs, smサイズでは改行-->
+                            <div class="d-block d-sm-none w-100"></div>
+                            <div class="media-body col px-2 my-3 mx-auto">
                                 <h5 class="mt-0">ソリューションキーワード</h5>
                                 <p>{!! nl2br($board->solution_keyword) !!}</p>
                                 <h5 class="mt-0">ソリューション会社名</h5>
