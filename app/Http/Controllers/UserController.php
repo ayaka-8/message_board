@@ -34,6 +34,6 @@ class UserController extends Controller
         unset($form['_token']);
         $user->fill($form)->save();
         
-        return redirect()->route('mypage')->with('status', 'ユーザー情報を更新しました<br>Your user profile has been updated.');
+        return redirect()->route('mypage')->with('status', 'ユーザー情報を更新しました。(Your user profile has been updated.)');
     }
 }
