@@ -87,16 +87,3 @@ body {
   height: 60px;
   background-color: #f5f5f5;
 }
-
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class*=col-] {
-    width: 100%;
-  }
-
-  .media-image {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
-  }
-}
