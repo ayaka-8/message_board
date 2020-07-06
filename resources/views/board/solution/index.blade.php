@@ -2,7 +2,7 @@
 @extends('layouts.common')
 @section('title', 'ソリューション一覧')
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <!-- キーワード検索　-->
@@ -30,7 +30,7 @@
                             <div class="media-image mt-3">
                                 @if($board->solution_image != null)
                                 <!--ソリューションに関する画像の表示-->
-                                <img src="{{ $board->solution_image }}" class="thumbnail align-center mx-3" alt="ソリューションに関する画像の表示" data-toggle="modal" data-target="#image-modal" style="cursor:pointer">
+                                <img src="{{ $board->solution_image }}" class="img-fluid thumbnail align-center mx-3" alt="ソリューションに関する画像の表示" data-toggle="modal" data-target="#image-modal" style="cursor:pointer">
                                 <!--モーダルで画像の表示-->
                                 <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
                                     <div class="modal-dialog modal-md">

@@ -12,7 +12,7 @@
                         <div class="media col-md-10 col-sm mx-auto">
                             <!--お悩みに関する画像の表示-->
                             @if($board->challenge_image != null)
-                            <img src="{{ $board->challenge_image }}" class="thumbnail align-center mr-3 mx-3" alt="お悩みに関する画像" data-toggle="modal" data-target="#chal-image-modal" style="cursor:pointer">
+                            <img src="{{ $board->challenge_image }}" class="img-fluid thumbnail align-center mr-3 mx-3" alt="お悩みに関する画像" data-toggle="modal" data-target="#chal-image-modal" style="cursor:pointer">
                             <!--モーダルで画像の表示-->
                             <div class="modal fade" id="chal-image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
                                 <div class="modal-dialog modal-md">
@@ -46,7 +46,7 @@
                         <div class="media col-md-10 mx-auto">
                             <!--ロゴ画像の表示-->
                             @if($board->logo_image != null)
-                            <img src="{{ $board->logo_image }}" class="thumbnail align-center mr-3 mx-3" alt="ロゴ画像" data-toggle="modal" data-target="#logo-image-modal" style="cursor:pointer">
+                            <img src="{{ $board->logo_image }}" class="img-fluid thumbnail align-center mr-3 mx-3" alt="ロゴ画像" data-toggle="modal" data-target="#logo-image-modal" style="cursor:pointer">
                             <!--モーダルで画像の表示-->
                             <div class="modal fade" id="logo-image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
                                 <div class="modal-dialog modal-md">
@@ -86,7 +86,7 @@
                         <div class="media col-md-10 mx-auto">
                             <!--担当者に関する画像の表示-->
                             @if($board->contact_image != null)
-                            <img src="{{ $board->contact_image }}" class="thumbnail align-center mr-3 mx-3" alt="担当者に関する画像" data-toggle="modal" data-target="#cont-image-modal" style="cursor:pointer">
+                            <img src="{{ $board->contact_image }}" class="img-fluid thumbnail align-center mr-3 mx-3" alt="担当者に関する画像" data-toggle="modal" data-target="#cont-image-modal" style="cursor:pointer">
                             <!--モーダルで画像の表示-->
                             <div class="modal fade" id="cont-image-modal" tabindex="-1" role="dialog" aria-labelledby="enlargeImgModalLabel">
                                 <div class="modal-dialog modal-md">
