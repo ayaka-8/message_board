@@ -120,7 +120,7 @@ class ChallengeProfileController extends Controller
         //編集内容の取得
         $form = $request->all();
         //画像の保存
-        //ロゴ画像の更新
+        //ロゴ画像が更新されていた場合
         if (isset($form['logo_image'])) {
             //アップロード日時を取得 
             $time = Carbon::now()->format('Y_m_d_h_i_s');
@@ -133,15 +133,9 @@ class ChallengeProfileController extends Controller
             //s3へのパスをカラムに保存
             $my_profile->logo_image = Storage::disk('s3')->url($path);
             unset($form['logo_image']);
-        } elseif(isset($request->remove)) {
-            $my_profile->logo_image = null;
-            //削除する画像の取得
-            $del_image = $request->logo_image;
-            //s3から画像を削除
-            Storage::disk('s3')->delete($del_image);
-            unset($form['remove']);
-        }
-        //ソリューションに関する画像の更新
+        } 
+        
+        //お悩みに関する画像が更新されていた場合
         if (isset($form['challenge_image'])) {
             //アップロード日時を取得 
             $time = Carbon::now()->format('Y_m_d_h_i_s');
@@ -154,15 +148,9 @@ class ChallengeProfileController extends Controller
             //s3へのパスをカラムに保存
             $my_profile->challenge_image = Storage::disk('s3')->url($path);
             unset($form['challenge_image']);
-        } elseif(isset($request->remove)) {
-            $my_profile->challenge_image = null;
-            //削除する画像の取得
-            $del_image = $request->challenge_image;
-            //s3から画像を削除
-            Storage::disk('s3')->delete($del_image);
-            unset($form['remove']);
-        }
-        //担当者に関する画像の更新
+        } 
+        
+        //担当者に関する画像が更新されていた場合
         if (isset($form['contact_image'])) {
             //アップロード日時を取得 
             $time = Carbon::now()->format('Y_m_d_h_i_s');
@@ -175,13 +163,34 @@ class ChallengeProfileController extends Controller
             //s3へのパスをカラムに保存
             $my_profile->contact_image = Storage::disk('s3')->url($path);
             unset($form['contact_image']);
-        } elseif(isset($request->remove)) {
-            $my_profile->contact_image = null;
-            //削除する画像の取得
-            $del_image = $request->contact_image;
-            //s3から画像を削除
-            Storage::disk('s3')->delete($del_image);
-            unset($form['remove']);
+        } 
+        
+        //削除チェックボックスにチェックがあった場合
+        if(isset($request->delete)) {
+            //該当ファイルを探すため、全てのファイルを$deletefilesに代入
+            $deletefiles = $form['delete'];
+            //foreachでロゴ、ソリューション、担当者のどれに該当するかをチェック
+            foreach($deletefiles as $dfile){
+                //ロゴ画像と一致した場合
+                if($dfile == $my_profile->logo_image) {
+                    $my_profile->logo_image = null;
+                    //s3から画像を削除
+                    Storage::disk('s3')->delete($my_profile->logo_image);
+                    unset($form['delete']);
+                } elseif($dfile == $my_profile->challenge_image) {
+                    //お悩み画像と一致した場合
+                    $my_profile->challenge_image = null;
+                    //s3から画像を削除
+                    Storage::disk('s3')->delete($my_profile->challenge_image);
+                    unset($form['delete']);
+                } else {
+                    //担当者の画像と一致した場合
+                    $my_profile->contact_image = null;
+                    //s3から画像を削除
+                    Storage::disk('s3')->delete($my_profile->contact_image);
+                    unset($form['delete']);
+                }
+            }
         }
         
         unset($form['_token']);

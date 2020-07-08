@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="remove" value="true">Delete the image.
+                                    <input type="checkbox" class="form-check-input" name="delete[]" value="{{ $my_profile->logo_image }}">Delete the image.
                                 </label>
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="remove" value="true">Delete the image.
+                                    <input type="checkbox" class="form-check-input" name="delete[]" value="{{ $my_profile->challenge_image }}">Delete the image.
                                 </label>
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="remove" value="true">Delete the image.
+                                    <input type="checkbox" class="form-check-input" name="delete[]" value="{{ $my_profile->contact_image }}">Delete the image.
                                 </label>
                             </div>
                         </div>
