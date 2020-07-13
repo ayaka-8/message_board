@@ -12,20 +12,20 @@ class SolutionContact extends Model
      * お問合わせのバリデーション
      */
     public static $rules = array(
-        'name' => 'required|max:255',
-        'email' => 'required|email|max:255',
+        'name' => 'required|max:100',
+        'email' => 'required|email|max:50',
         'subject' => 'required',
         'subject.*' =>'in:ソリューション内容について,その他',
-        'content' => 'required|max:255'
-        );
+        'content' => 'required|max:255',
+    );
         
     /**
      * セレクトボックスに表示するお問合わせ項目
      */
     public static $subjects =[
         'ソリューションの内容について',
-        'その他'
-        ];
+        'その他',
+    ];
         
     /**
      * usersテーブルとリレーション

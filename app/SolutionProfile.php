@@ -12,12 +12,12 @@ class SolutionProfile extends Model
      * ソリューションプロフィールのバリデーション
      */
     public static $rules = array(
-        'public_name' => 'required|max:255',
+        'public_name' => 'required|max:100',
         'logo_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=250,max_height=250',
-        'area' => 'required|max:255',
-        'address' => 'required|max:255',
+        'area' => 'required|max:100',
+        'address' => 'required|max:100',
         'phone_number' => 'required|numeric|digits_between:8,11',
-        'url' => 'url|nullable|max:255',
+        'url' => 'url|nullable|max:100',
         'solution_keyword' => 'required|max:255',
         'solution_detail' => 'required|max:255',
         'solution_performance' => 'required|max:255',
@@ -25,8 +25,8 @@ class SolutionProfile extends Model
         'message' => 'required|max:255',
         'contact_image' => 'nullable|file|image|mimes:png,jpg,jpeg|dimensions:max_width=250,max_height=250',
         'contact_message' => 'required|max:255',
-        'contact_email' => 'required|email|max:255',
-        );
+        'contact_email' => 'required|email|max:50',
+    );
         
     /**
      * usrsテーブルとリレーション

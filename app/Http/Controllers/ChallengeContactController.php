@@ -66,8 +66,8 @@ class ChallengeContactController extends Controller
             'recipient_name' => $request->recipient_name,
             'subject' => 'お問い合わせありがとうございました',
             'title' => $request->subject,
-            'content' => $request->content
-            ]));
+            'content' => $request->content,
+        ]));
         
         return view('contact.solution.complete');
         

@@ -9,5 +9,5 @@ return [
     'Register' => '新規登録',
     'Name' => '名前',
     'Password' => 'パスワード',
-    'Confirm Password' => 'パスワード（確認用）'
+    'Confirm Password' => 'パスワード（確認用）',
 ];
