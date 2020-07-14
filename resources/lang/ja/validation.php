@@ -56,7 +56,7 @@ return [
         'string' => 'The :attribute must be greater than or equal :value characters.',
         'array' => 'The :attribute must have :value items or more.',
     ],
-    'image' => 'The :attribute must be an image.',
+    'image' => ':attribute には画像ファイルを指定してください。(This field must be an image.)',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
@@ -114,7 +114,7 @@ return [
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => 'この:attribute は既に存在しています。(This has already been taken.)',
     'uploaded' => 'The :attribute failed to upload.',
-    'url' => ':attribute のURLが有効なURLではありません。(This format is invalid)',
+    'url' => ':attribute のURLが有効なURLではありません。(This format is invalid.)',
     'uuid' => 'The :attribute must be a valid UUID.',
 
     /*
