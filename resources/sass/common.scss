@@ -23,6 +23,11 @@ body {
 
 .nav-link {
   color: #fff !important;
+  transition: 0.5s;
+}
+
+.nav-link:hover {
+  opacity: 0.5;
 }
 
 .table-dark {
