@@ -51,3 +51,12 @@ body {
   margin-bottom: 0;
   margin-top: 10px;
 }
+
+@media (min-width: 576px) {
+  [class*=flex-sm-row] {
+    flex-direction: row !important;
+  }
+}
+.justify-content-center {
+  justify-content: space-around !important;
+}

@@ -21,49 +21,75 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 mx-auto">
-                <!--新着情報-->
                 <div class="latest-info col-md-10 mx-auto">
-                    <div class="card my-3">
-                        <div class="content px-2 py-2">
-                            <h4 class="mt-2 px-2">新着情報</h4>
-                            <div class="solution-info card my-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">新着ソリューション情報</h5>
-                                    @if (count($solutions) > 0)
-                                    @foreach ($solutions as $solution)
-                                    　<div class="solution-group">
-                                    　   <div class="col-md-4">{{ $solution->created_at->format('Y/m/d') }}</div>
-                                    　   <div class="col-md-8">
-                                    　       <a href="{{ action('SolutionBoardController@show', ['id' => $solution->id]) }}">{{ $solution->public_name }}</a>
-                                    　   </div>
-                                    　   <div class="col border-bottom">ソリューションキーワード：{{ $solution->solution_keyword }}</div>
-                                    　</div>
-                                    　@endforeach
-                                      @endif
+                    <!--新着ソリューション情報-->
+                    <div class="solution-info card my-3 border-white">
+                        <div class="card-body">
+                            <h5 class="col-12 card-header px-3 text-light bg-dark">新着ソリューション情報</h5>
+                            @if (count($solutions) > 0)
+                            @foreach ($solutions as $solution)
+                            <div class="solution-group col-12 card-body px-1 py-2">
+                                 <div class="updated_solutions-body row no-gutters flex-column flex-sm-column flex-md-column justify-md-content-around">
+                                    　<a class="updated_solutions-body-item col-12 col-sm-12 col-md-12 pt-2 pb-2 pb-sm-1 pb-md-2 px-1 px-sm-4 px-md-0 text-decoration-none" href="{{ action('SolutionBoardController@show', ['id' => $solution->id]) }}">
+                                    　     <div class="d-flex flex-row flex-sm-column-reverse flex-sm-row align-items-center">
+                                    　          <div class="col-4 col-sm-4 col-md-4 px-1 px-sm-0 px-md-1 pt-0 pt-sm-2 pt-md-0">
+                                    　           　 <img width="120" height="100" layout="responsive" class="updated_solutions-body-item-img img-fluid _w-100 text-center" src="{{ $solution->solution_image }}">
+                                    　       　 </div>
+                                    　       　 <div class="col-8 col-sm-8 col-md-8 px-1 px-sm-0 px-md-1">
+                                    　       　　　    <div class="update_solutions-item-name text-left text-dark" >
+                                    　           　　　    {{ $solution->public_name }}
+                                    　           　 </div>
+                                    　       　　　    <div class="updated_solutions-item-desc text-left text-dark col">
+                                    　               　 {{ $solution->solution_keyword }}
+                                    　           　 </div>
+                                    　       　　　    <div class="updated-solutions-item-date text-right text-dark">
+                                    　           　　    {{ $solution->created_at->format('Y/m/d') }}
+                                    　       　　　    </div>
+                                    　       　 </div>
+                                    　   　 </div>
+                                    　</a>
+                                 </div>
+                            </div>
+                        @endforeach
+                        @endif
+                        </div>
+                        <div class="text-center">
+                            <a href="{{ action('SolutionBoardController@index') }}" class="btn btn-primary">ソリューション一覧ページへ</a>
+                        </div>
+                    </div>
+                    <!--新着お悩み情報-->
+                    <div class="challenge-info card my-3 border-white">
+                        <div class="card-body">
+                            <h5 class="col-12 card-header px-3 text-light bg-dark">新着お悩み情報</h5>
+                            @if (count($challenges) > 0)
+                            @foreach ($challenges as $challenge)
+                            <div class="challenge-group col-12 card-body px-1 py-2">
+                                <div class="updated-challenges-body row no-gutters flex-column flex-sm-column flex-md-column justify-md-content-around">
+                                    <a class="updated_challenges-body-item col-12 col-sm-12 col-md-12 pt-2 pb-2 pb-sm-1 pb-md-2 px-1 px-sm-4 px-md-0 text-decoration-none" href="{{ action('ChallengeBoardController@show', ['id' => $challenge->id]) }}">
+                                        <div class="d-flex flex-row flex-sm-column-reverse flex-sm-row align-items-center">
+                                            <div class="col-4 col-sm-4 col-md-4 px-1 px-sm-0 px-md-1 pt-0 pt-sm-2 pt-md-0">
+                                    　           <img width="120" height="100" layout="responsive" class="updated_challenges-body-item-img img-fluid _w-100 text-center" src="{{ $challenge->challenge_image }}">
+                                    　       </div>
+                                    　       <div class="col-8 col-sm-8 col-md-8 px-1 px-sm-0 px-md-1">
+                                    　           <div class="update_solutions-item-name text-left text-dark">
+                                    　               {{ $challenge->public_name }}
+                                    　           </div>
+                                    　           <div class="updated_challenges-item-desc text-left text-dark col">
+                                    　               {{ $challenge->challenge_keyword }}
+                                    　           </div>
+                                    　           <div class="updated_challenges-item-desc text-left text-dark">
+                                    　               {{ $challenge->created_at->format('Y/m/d') }}
+                                    　           </div>
+                                    　       </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="text-center">
-                                <a href="{{ action('SolutionBoardController@index') }}" class="btn btn-primary">ソリューション一覧ページへ</a>
-                            </div>
-                            <div class="challenge-info card my-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">新着お悩み情報</h5>
-                                    @if (count($challenges) > 0)
-                                    @foreach ($challenges as $challenge)
-                                    　<div class="challenge-group">
-                                    　   <div class="col-md-4">{{ $challenge->created_at->format('Y/m/d') }}</div>
-                                    　   <div class="col-md-8">
-                                    　       <a href="{{ action('ChallengeBoardController@show', ['id' => $challenge->id]) }}">{{ $challenge->public_name }}</a>
-                                    　   </div>
-                                    　   <div class="col border-bottom">お悩みキーワード：{{ $challenge->challenge_keyword }}</div>
-                                    　</div>
-                                    　@endforeach
-                                      @endif
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <a href="{{ action('ChallengeBoardController@index') }}" class="btn btn-primary">お悩み一覧ページへ</a>
-                            </div>
+                        @endforeach
+                        @endif
+                        </div>
+                        <div class="text-center">
+                            <a href="{{ action('ChallengeBoardController@index') }}" class="btn btn-primary">お悩み一覧ページへ</a>
                         </div>
                     </div>
                 </div>
@@ -75,6 +101,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
