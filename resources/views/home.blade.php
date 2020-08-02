@@ -23,8 +23,8 @@
             <div class="col-md-10 mx-auto">
                 <div class="latest-info col-md-10 mx-auto">
                     <!--新着ソリューション情報-->
-                    <div class="solution-info card my-3 border-white">
-                        <div class="card-body">
+                    <div class="solution-info card col my-3 border-white">
+                        <div class="card-body col">
                             <h5 class="col-12 col card-header px-3 text-light bg-dark">新着ソリューション情報</h5>
                             @if (count($solutions) > 0)
                             @foreach ($solutions as $solution)
@@ -62,8 +62,8 @@
                         </div>
                     </div>
                     <!--新着お悩み情報-->
-                    <div class="challenge-info card my-3 border-white">
-                        <div class="card-body">
+                    <div class="challenge-info card col my-3 border-white">
+                        <div class="card-body col">
                             <h5 class="col-12 col card-header px-3 text-light bg-dark">新着お悩み情報</h5>
                             @if (count($challenges) > 0)
                             @foreach ($challenges as $challenge)
