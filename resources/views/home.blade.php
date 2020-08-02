@@ -31,7 +31,7 @@
                             <div class="solution-group col-12 card-body px-1 py-2">
                                  <div class="updated_solutions-body row no-gutters flex-column flex-sm-column flex-md-column justify-md-content-around">
                                     　<a class="updated_solutions-body-item col-12 col-sm-12 col-md-12 pt-2 pb-2 pb-sm-1 pb-md-2 px-1 px-sm-4 px-md-0 text-decoration-none" href="{{ action('SolutionBoardController@show', ['id' => $solution->id]) }}">
-                                    　     <div class="d-flex flex-row flex-sm-column-reverse flex-sm-row align-items-center">
+                                    　     <div class="d-flex flex-row flex-sm-row align-items-center">
                                     　          <div class="col-4 col-sm-4 col-md-4 px-1 px-sm-0 px-md-1 pt-0 pt-sm-2 pt-md-0">
                                     　           　@if($solution->solution_image != null)
                                     　           　 <img width="120" height="100" layout="responsive" class="updated_solutions-body-item-img img-fluid _w-100 text-center" src="{{ $solution->solution_image }}">
@@ -70,7 +70,7 @@
                             <div class="challenge-group col-12 card-body px-1 py-2">
                                 <div class="updated-challenges-body row no-gutters flex-column flex-sm-column flex-md-column justify-md-content-around">
                                     <a class="updated_challenges-body-item col-12 col-sm-12 col-md-12 pt-2 pb-2 pb-sm-1 pb-md-2 px-1 px-sm-4 px-md-0 text-decoration-none" href="{{ action('ChallengeBoardController@show', ['id' => $challenge->id]) }}">
-                                        <div class="d-flex flex-row flex-sm-column-reverse flex-sm-row align-items-center">
+                                        <div class="d-flex flex-row flex-sm-row align-items-center">
                                             <div class="col-4 col-sm-4 col-md-4 px-1 px-sm-0 px-md-1 pt-0 pt-sm-2 pt-md-0">
                                                 @if ($challenge->challenge_image != null)
                                     　           <img width="120" height="100" layout="responsive" class="updated_challenges-body-item-img img-fluid _w-100 text-center" src="{{ $challenge->challenge_image }}">
