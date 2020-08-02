@@ -33,7 +33,11 @@
                                     　<a class="updated_solutions-body-item col-12 col-sm-12 col-md-12 pt-2 pb-2 pb-sm-1 pb-md-2 px-1 px-sm-4 px-md-0 text-decoration-none" href="{{ action('SolutionBoardController@show', ['id' => $solution->id]) }}">
                                     　     <div class="d-flex flex-row flex-sm-column-reverse flex-sm-row align-items-center">
                                     　          <div class="col-4 col-sm-4 col-md-4 px-1 px-sm-0 px-md-1 pt-0 pt-sm-2 pt-md-0">
+                                    　           　@if($solution->solution_image != null)
                                     　           　 <img width="120" height="100" layout="responsive" class="updated_solutions-body-item-img img-fluid _w-100 text-center" src="{{ $solution->solution_image }}">
+                                    　           　@else
+                                    　             <img width="120" height="100" layout="responsive" src="{{ $no_image }}" class="img-fluid _w-100 text-center mx-3">
+                                    　             @endif
                                     　       　 </div>
                                     　       　 <div class="col-8 col-sm-8 col-md-8 px-1 px-sm-0 px-md-1">
                                     　       　　　    <div class="update_solutions-item-name text-left text-dark" >
@@ -68,7 +72,11 @@
                                     <a class="updated_challenges-body-item col-12 col-sm-12 col-md-12 pt-2 pb-2 pb-sm-1 pb-md-2 px-1 px-sm-4 px-md-0 text-decoration-none" href="{{ action('ChallengeBoardController@show', ['id' => $challenge->id]) }}">
                                         <div class="d-flex flex-row flex-sm-column-reverse flex-sm-row align-items-center">
                                             <div class="col-4 col-sm-4 col-md-4 px-1 px-sm-0 px-md-1 pt-0 pt-sm-2 pt-md-0">
+                                                @if ($challenge->challenge_image != null)
                                     　           <img width="120" height="100" layout="responsive" class="updated_challenges-body-item-img img-fluid _w-100 text-center" src="{{ $challenge->challenge_image }}">
+                                    　           @else
+                                    　           <img width="120" height="100" layout="responsive" src="{{ $no_image }}" class="img-fluid _w-100 text-center mx-3">
+                                    　          @endif
                                     　       </div>
                                     　       <div class="col-8 col-sm-8 col-md-8 px-1 px-sm-0 px-md-1">
                                     　           <div class="update_solutions-item-name text-left text-dark">

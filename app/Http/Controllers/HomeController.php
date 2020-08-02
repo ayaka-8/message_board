@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\SolutionProfile;
 use App\ChallengeProfile;
@@ -40,7 +41,10 @@ class HomeController extends Controller
                         ->sortByDesc('created_at')
                         ->take(3);
         
-        return view('home', ['solutions' => $solutions, 'challenges' => $challenges]);
+        //画像がない場合のデフォルト用画像をs3から取得
+        $no_image_url = Storage::disk('s3')->url('no_image/noimage.png');
+        
+        return view('home', ['solutions' => $solutions, 'challenges' => $challenges, 'no_image' => $no_image_url]);
         
     }
 }
