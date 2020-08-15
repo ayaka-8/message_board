@@ -52,6 +52,14 @@ body {
   margin-top: 10px;
 }
 
+.updated_solutions-item-desc {
+  text-indent: -2em;
+}
+
+.updated_challenges-item-des {
+  text-indent: -2em;
+}
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   [class*=col-] {
